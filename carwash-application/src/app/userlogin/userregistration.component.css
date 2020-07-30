@@ -1,0 +1,9 @@
+label{
+  color:black;
+  /* //font-style: bold; */
+}
+#registerFrom{
+  border: 5px solid #053636;
+  outline: 1px solid #a41d21;
+  padding: 40px 25px;
+}

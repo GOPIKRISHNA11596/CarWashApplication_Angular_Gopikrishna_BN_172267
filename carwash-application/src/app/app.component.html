@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card">
+  <div class="card-header text-center" style="background-color: black;">
+    <img src="/assets/images/servicelogo.jpg"
+    width="100"
+    height="50"
+    title="drcar.jpg">
+    <!-- <i class="fa fa-car" aria-hidden="true"  style="font-size:30px;color:whitesmoke;" ></i> -->
+    &nbsp;
+    <b style="color:white; font-size: 30px;">CAR-CARE SERVICE</b>
+    <!-- &nbsp;
+    <img src="/assets/images/servicelogomirror.png"
+    width="100"
+    height="50"
+    title="drcar.jpg"> -->
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <a class="navbar-brand"[routerLink]="['/home']">
+    <img src="/assets/images/car-service-logo1.jpg" width="100" height="70" class="d-inline-block align-top" alt="" title="logo.jpg" id="logoImg">
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+
+      <li class="nav-item active">
+
+        <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+      </li>
+
+      <li class="nav-item active">
+       <a class="nav-link" [routerLink]="['/userlogin']"><b>Login</b></a>
+      </li>
+
+      <!-- <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Login
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/userlogin']">Admin Login</a>
+          <a class="dropdown-item" [routerLink]="['/userlogin']">Washer Login</a>
+          <a class="dropdown-item" [routerLink]="['/userlogin']">Customer Login</a>
+        </div>
+      </li> -->
+
+    </ul>
+  </div>
+</nav>
+<div class="card">
+  <div class="card-body">
+   <router-outlet></router-outlet>
+  </div>
+</div>
+
+<div class="card-footer text-muted" style="background-color: black;">
+  <div class="container-fluid">
+    <div class='row'>
+
+      <div class='col-md-3'>
+        <h3 >On Mobile</h3>
+        <ul>
+          <li>
+            <a href="https://play.google.com/store/apps/carwash"
+                  target="_blank" style="border: none;line-height: 0;padding: 0;">
+                  <img src="/assets/images/google_play.png" class="img-responsive">
+            </a>
+          </li>
+          <li>
+            <a href="https://www.apple.com/ios/app-store/"
+                  target="_blank" style="border: none;line-height: 0;padding: 0;">
+                  <img src="/assets/images/appstore_icon.png" class="img-responsive">
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class='col-md-2'>
+        <h3 >Follow Us</h3>
+        <ul class="social-fix">
+          <li><a target="_blank" href="https://www.facebook.com/carwash" title="facebook_carwash"><i class="fa fa-facebook"></i> <b style="color: white;">&nbsp; FaceBook</b></a></li>
+          <li><a target="_blank" href="https://twitter.com/carwash" class="tw" title="twitter_carwash"><i class="fa fa-twitter"></i><b style="color: white;">&nbsp; Twitter</b></a></li>
+          <li><a target="_blank" href="https://www.instagram.com/carwash/" title="instagram_carwash"><i class="fa fa-instagram"></i><b style="color: white;">&nbsp; Instagram</b></a></li>
+          <li><a target="_blank" href="https://www.youtube.com/channel/UCfOPENEYyDMNd1Aqswa" title="youtube_carwash"><i class="fa fa-youtube"></i><b style="color: white;">&nbsp; YouTube</b></a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-3">
+        <h3>Address Us</h3>
+        <p><i class="fa fa-map-marker" aria-hidden="true"></i>#82, 17th Cross, 32nd Main, JP Nagar, Phase 6, Bangalore 560078</p>
+        <p><i class="fa fa-phone" aria-hidden="true"></i>1800 3008 3008</p>
+        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>info@carwash.com</p>
+      </div>
+      <div class="col-md-4">
+        <div class="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7772.621770884775!2d77.592704!3d13.079473!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x958fe75bff0c6d8e!2sAttide+Boutique+Hotel!5e0!3m2!1sen!2sus!4v1519625757204"
+                  width="100%" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe></div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <p class="text-center" style="color:#fff;font-size:12px; margin-bottom:0;">Copyright © 2020 Carcare. All Rights Reserved.</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+

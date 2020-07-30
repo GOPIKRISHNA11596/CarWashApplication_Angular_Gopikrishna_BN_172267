@@ -1,0 +1,10 @@
+
+#logoImg{
+  opacity: 1;
+}
+#logoImg:hover {
+  opacity: 0.8;
+}
+h3{
+  color: white;
+}

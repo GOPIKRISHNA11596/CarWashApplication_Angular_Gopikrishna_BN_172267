@@ -1,0 +1,34 @@
+[
+    {
+        "ID": 1,
+        "BookName": "Harry Potter",
+        "AuthorName": "J.K.Rowling",
+        "Category": "Novel",
+        "Price": "Rs.500",
+        "imageUrl": "assets/images/HarryPotter.jpg"
+    },
+    {
+        "ID": 2,
+        "BookName": "Half Girlfriend",
+        "AuthorName": "Chetan Bhagat",
+        "Category": "Drama",
+        "Price": "Rs.750",
+        "imageUrl": "assets/images/HalfGirlfriend.jpg"
+    },
+    {
+        "ID": 3,
+        "BookName": "Three Idiots",
+        "AuthorName": "Chetan Bhagat",
+        "Category": "Love Story",
+        "Price": "Rs.1000",
+        "imageUrl": "assets/images/ThreeIdiots.jpg"
+    },
+    {
+        "ID": 4,
+        "BookName": "RamuIsm",
+        "AuthorName": "Ram Gopal Varma",
+        "Category": "Complex Story",
+        "Price": "Rs.10",
+        "imageUrl": "assets/images/RamuIsm.jpg"
+    }
+    ]

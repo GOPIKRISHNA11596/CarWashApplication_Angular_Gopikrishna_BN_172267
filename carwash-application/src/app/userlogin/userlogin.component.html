@@ -1,0 +1,41 @@
+
+<div class="container">
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+<!-- UserName -->
+    <div class="form-group">
+      <label>User Name :</label>
+      <input type="text" formControlName="username" placeholder="User Name" id="username" class="form-control" required>
+    </div>
+<!-- Validating Username -->
+    <div *ngFor="let validation of validationMessages.username">
+      <div class="error-message" *ngIf="loginForm.controls['username'].hasError(validation.type) && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+           class="alert alert-danger">
+            {{validation.message}}
+      </div>
+    </div>
+
+
+<!-- Password  -->
+    <div class="form-group">
+      <label>Password :</label>
+      <input type="password" formControlName="password" placeholder="Password" class="form-control" id="password"
+        required>
+    </div>
+<!-- Validating Username -->
+<div *ngFor="let validation of validationMessages.password">
+  <div class="error-message" *ngIf="loginForm.controls['password'].hasError(validation.type) && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+       class="alert alert-danger">
+        {{validation.message}}
+  </div>
+</div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+    <div class="text-center">
+        Don't have an account? <a [routerLink]="['/userregister']">SignUp</a>
+    </div>
+
+  </form>
+</div>

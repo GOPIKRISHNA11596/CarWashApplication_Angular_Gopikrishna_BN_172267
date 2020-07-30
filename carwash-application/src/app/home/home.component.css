@@ -1,0 +1,19 @@
+
+.imgBox {
+  opacity: 1;
+}
+
+.imgBox:hover {
+  opacity: 0.3;
+}
+
+.card-header {
+  background-color: black;
+}
+
+b {
+  color: white;
+}
+.solid {
+  border-top: 3px solid #bbb;
+}
