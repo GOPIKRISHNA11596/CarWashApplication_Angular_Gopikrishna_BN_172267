@@ -83,7 +83,7 @@ export class UserregistrationComponent implements OnInit {
     this.submitted = true;
 
     if(this.addForm.valid === false){
-        alert('Enter Valid Data')
+        alert('Enter Valid Data');
     }
     if(this.addForm.valid === true){
       alert('Registration Successfull')

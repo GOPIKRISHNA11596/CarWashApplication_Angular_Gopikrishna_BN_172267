@@ -14,7 +14,7 @@ export class UserloginComponent implements OnInit {
 
   loginForm: FormGroup;
   submitted = false;
-
+  check = false;
 
   constructor(
     private userService : UserService,
@@ -27,10 +27,10 @@ export class UserloginComponent implements OnInit {
 
 
   validationMessages = {
-    'username': [
+    'username' : [
     { type: 'required', message: 'Username is required' }
     ],
-    'password': [
+    'password' : [
     { type: 'required', message: 'Password is required' }
     ]
   }
@@ -54,13 +54,23 @@ export class UserloginComponent implements OnInit {
   onSubmit(){
     console.log(this.loginForm.value);
 
+    // if(this.loginForm.valid === true){
+    //   alert('Login Successfull');
+    // }else{
+    //   alert('Login Failed');
+    // }
     if(this.loginForm.valid){
-       this.userService.authentication(this.loginForm.value)
+        this.check = true;
+        this.userService.authentication(this.loginForm.value)
         .subscribe( data => {
         console.log(data);
+        alert('Login Successfull');
         this.router.navigate(['/home']);
         });
+    }else{
+      this.check = false;
+      alert('Invalid username or password');
+      this.router.navigate(['/userlogin']);
     }
   }
-
 }

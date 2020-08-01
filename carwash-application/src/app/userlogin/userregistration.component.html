@@ -1,23 +1,7 @@
-<div class="container" >
-<div class="row" id="registerFrom" >
-
-
-  <!-- <div *ngIf="check">
-    <div class="form-group">
-      <label style="color: green;">Registration Successfull</label>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary" routerLinkActive='active' [routerLink]="['/userlogin']"
-        type="submit">Login</button>
-    </div>
-  </div> -->
-
-<!-- First Name -->
-<div class="col-md">
-
-
+<div class="container" id="registerFrom">
+<!-- <div  id="registerFrom" style="justify-content: center;"> -->
   <form [formGroup]="addForm" [hidden]="submitted" (ngSubmit)="onSubmit()" >
-
+<!-- First Name -->
     <div class="form-group">
       <label>First Name :</label>
       <input type="text" formControlName="firstName" placeholder="First Name" id="firstName"
@@ -120,5 +104,6 @@
 
   </form>
   </div>
-</div>
-</div>
+<!-- </div> -->
+
+

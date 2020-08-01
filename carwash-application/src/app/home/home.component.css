@@ -17,3 +17,6 @@ b {
 .solid {
   border-top: 3px solid #bbb;
 }
+#imageBorderRadius{
+  border-radius: 15px;
+}
