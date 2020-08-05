@@ -1,0 +1,81 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4" id="carForm">
+      <div style="text-align: center;">
+        <i class="fa fa-car fa-5x" aria-hidden="true"></i>
+        <h4>Provide Car Details</h4>
+      </div>
+
+      <form [formGroup]="carForm" [hidden]="submitted" (ngSubmit)="onSubmit()">
+        <!-- Car Brand -->
+        <div class="form-group">
+          <label>Car Brand :</label>
+          <input type="text" formControlName="carBrand" placeholder="Car Brand" id="carBrand" class="form-control"
+            required>
+        </div>
+        <!-- Car Brand Validation  -->
+        <div *ngFor="let validation of car_validation_messages.carBrand">
+          <div class="error-message"
+            *ngIf="carForm.controls['carBrand'].hasError(validation.type) && (carForm.controls['carBrand'].dirty || carForm.controls['carBrand'].touched)"
+            class="alert alert-danger">
+            {{validation.message}}
+          </div>
+        </div>
+
+        <!-- Car Type -->
+        <div class="form-group">
+          <label>Car Type :</label>
+          <input type="text" formControlName="carType" id="carType" placeholder="Car Type" id="carType"
+            class="form-control" required>
+        </div>
+        <!-- Car Type Validation  -->
+        <div *ngFor="let validation of car_validation_messages.carType">
+          <div class="error-message"
+            *ngIf="carForm.controls['carType'].hasError(validation.type) && (carForm.controls['carType'].dirty || carForm.controls['carType'].touched)"
+            class="alert alert-danger">
+            {{validation.message}}
+          </div>
+        </div>
+
+        <!-- year -->
+        <div class="form-group">
+          <label>Year :</label>
+          <input type="text" formControlName="year" placeholder="Year" id="year" class="form-control" required>
+        </div>
+        <!--year Validation -->
+        <div *ngFor="let validation of car_validation_messages.year">
+          <div class="error-message"
+            *ngIf="carForm.controls['year'].hasError(validation.type) && (carForm.controls['year'].dirty || carForm.controls['year'].touched)"
+            class="alert alert-danger">
+            {{validation.message}}
+          </div>
+        </div>
+
+        <!-- Color  -->
+        <div class="form-group">
+          <label>Color :</label>
+          <input type="text" formControlName="color" placeholder="Color" id="color" class="form-control" required>
+        </div>
+        <!-- Color Validation -->
+        <div *ngFor="let validation of car_validation_messages.color">
+          <div class="error-message"
+            *ngIf="carForm.controls['color'].hasError(validation.type) && (carForm.controls['color'].dirty || carForm.controls['color'].touched)"
+            class="alert alert-danger">
+            {{validation.message}}
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <button class="btn btn-primary" type="submit">NEXT</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+
+  </div>
+</div>

@@ -15,4 +15,9 @@
 }
 h3{
   color: white;
+  border-bottom : solid 2px #c02b3a;
+}
+
+#address{
+  color: white;
 }

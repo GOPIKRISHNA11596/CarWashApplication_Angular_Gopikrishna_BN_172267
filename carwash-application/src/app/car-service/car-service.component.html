@@ -1,0 +1,338 @@
+<div class="row">
+  <div class="col-md-12 text-center" style="background-color: black;">
+    <h2 style="color: white;"> CAR SERVICES</h2>
+  </div>
+</div>
+<hr>
+
+<div class="row text-center" >
+<!-- Modal button trigger for trending1 -->
+  <div class="col-md-4">
+   <a data-toggle="modal" data-target="#trending1">
+    <img src="/assets/images/trending1.png" width="170" height="170" title="trending1.png" class="imgBox"
+      id="imageBorderRadius" >
+    </a>
+    <p class="text-center "><strong>Exterior Care</strong></p>
+  </div>
+<!-- Modal for trending1-->
+  <div class="modal fade" id="trending1" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content" *ngIf="carService">
+      <div class="modal-header">
+        <h5  class="modal-title">{{carService.packageName}}</h5>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>{{carService.packageDescrpion.service1}}</li><br>
+          <li>{{carService.packageDescrpion.service2}}</li><br>
+          <li>{{carService.packageDescrpion.service3}}</li><br>
+          <li>{{carService.packageDescrpion.service4}}</li><br>
+          <li>{{carService.packageDescrpion.service5}}</li><br>
+          <li>{{carService.packageDescrpion.service6}}</li><br>
+        </ul>
+        <div>
+          <p><b>Amount</b> : {{carService.packageAmount}}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']" >Next</button>
+      </div>
+    </div>
+    </div>
+  </div>
+<!-- Modal button trigger for trending2 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending2">
+      <img src="/assets/images/trending2.png" width="170" height="170" title="trending2.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>Clean In & Out</strong></p>
+  </div>
+<!-- Modal for trending2-->
+  <div class="modal fade" id="trending2" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal button trigger for trending3 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending3">
+      <img src="/assets/images/trending3.png" width="170" height="170" title="trending3.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>Clean & Shine</strong></p>
+  </div>
+<!-- Modal for trending3-->
+  <div class="modal fade" id="trending3" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="solid">
+<div class="row text-center">
+<!-- Modal button trigger for trending4 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending4">
+      <img src="/assets/images/trending4.png" width="170" height="170" title="trending4.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>Tidy & Secure</strong></p>
+  </div>
+<!-- Modal for trending4-->
+  <div class="modal fade" id="trending4" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal button trigger for trending5 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending5">
+      <img src="/assets/images/trending5.png" width="170" height="170" title="trending5.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>Awesome Detail</strong></p>
+  </div>
+<!-- Modal for trending5-->
+  <div class="modal fade" id="trending5" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal button trigger for trending6 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending6">
+      <img src="/assets/images/trending6.png" width="170" height="170" title="trending6.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>Engine Oil Change</strong></p>
+  </div>
+<!-- Modal for trending6-->
+  <div class="modal fade" id="trending6" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="solid">
+<div class="row text-center">
+<!-- Modal button trigger for trending7 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending7">
+      <img src="/assets/images/trending7.png" width="170" height="170" title="trending7.png" class="imgBox"
+        id="imageBorderRadius">
+      </a>
+    <p class="text-center"><strong>Express Servicing</strong></p>
+  </div>
+<!-- Modal for trending7-->
+  <div class="modal fade" id="trending7" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal button trigger for trending8 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending8">
+      <img src="/assets/images/trending8.png" width="170" height="170" title="trending8.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>General Check-up</strong></p>
+  </div>
+<!-- Modal for trending8-->
+  <div class="modal fade" id="trending8" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Modal button trigger for trending9 -->
+  <div class="col-md-4">
+    <a data-toggle="modal" data-target="#trending9">
+      <img src="/assets/images/trending1.png" width="170" height="170" title="trending9.png" class="imgBox"
+        id="imageBorderRadius">
+    </a>
+    <p class="text-center"><strong>Extra Care</strong></p>
+  </div>
+<!-- Modal for trending9-->
+  <div class="modal fade" id="trending9" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5  class="modal-title">{{carService.packageName}}</h5>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>{{carService.packageDescrpion.service1}}</li><br>
+            <li>{{carService.packageDescrpion.service2}}</li><br>
+            <li>{{carService.packageDescrpion.service3}}</li><br>
+            <li>{{carService.packageDescrpion.service4}}</li><br>
+            <li>{{carService.packageDescrpion.service5}}</li><br>
+            <li>{{carService.packageDescrpion.service6}}</li><br>
+            </ul>
+            <div>
+              <p><b>Amount</b> : {{carService.packageAmount}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" *ngIf="read()=='true'" [routerLink]="['/booking']">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

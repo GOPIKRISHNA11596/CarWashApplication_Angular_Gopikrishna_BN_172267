@@ -5,19 +5,23 @@
     <div class="col-md-4" id="loginFrom">
       <div style="text-align: center;">
         <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+      <br>
+      <br>
+      <div *ngIf="!check">
+        <p class="alert alert-danger">Invalid Username or Password</p>
       </div>
       <br>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" > <!-- (ngSubmit)="onSubmit()"> -->
         <!-- UserName -->
         <div class="form-group">
           <input type="text" formControlName="username" placeholder="USERNAME" id="username" class="form-control"
-            required>
+           required>
         </div>
         <!-- Validating Username -->
         <div *ngFor="let validation of validationMessages.username">
           <div class="error-message"
             *ngIf="loginForm.controls['username'].hasError(validation.type) && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
-            class="alert alert-danger">
+              class="alert alert-danger">
             {{validation.message}}
           </div>
         </div>
@@ -36,7 +40,7 @@
         </div>
         <br>
         <div style="text-align: center;">
-          <button type="submit" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary"  (click)="onLogin(user.username , user.password)">Login</button>
         </div>
         <br>
         <div class="text-center">

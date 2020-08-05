@@ -13,7 +13,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UserloginComponent } from './userlogin/userlogin.component';
 import { UserregistrationComponent } from './userlogin/userregistration.component';
-
+import { CarServiceComponent } from './car-service/car-service.component';
+import { CarComponent } from './car/car.component';
+import { BookingComponent } from './booking/booking.component';
 
 
 
@@ -22,7 +24,10 @@ import { UserregistrationComponent } from './userlogin/userregistration.componen
     AppComponent,
     HomeComponent,
     UserloginComponent,
-    UserregistrationComponent
+    UserregistrationComponent,
+    CarServiceComponent,
+    CarComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

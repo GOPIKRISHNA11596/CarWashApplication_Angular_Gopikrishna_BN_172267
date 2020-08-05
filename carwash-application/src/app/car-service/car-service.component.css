@@ -7,13 +7,7 @@
   opacity: 0.3;
 }
 
-.card-header {
-  background-color: black;
-}
 
-b {
-  color: white;
-}
 .solid {
   border-top: 3px solid #bbb;
 }
@@ -21,3 +15,6 @@ b {
   border-radius: 15px;
 }
 
+.modal-title {
+  margin: 0 auto;
+}

@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { UserService } from './user.service';
 import { User } from './user';
+import { AuthService } from './auth.service';
+
 
 @Component({
   selector: 'app-userlogin',
@@ -13,16 +15,19 @@ export class UserloginComponent implements OnInit {
   pageTitle = 'Login';
 
   loginForm: FormGroup;
-  submitted = false;
-  check = false;
+  submitted : boolean = false;
+  check = true;
+  user: User = new User();
+  private isLogin: boolean = false;
+
+
 
   constructor(
     private userService : UserService,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
-    //,private authenticationService: AuthenticationService,
-    //private alertService: AlertService
+    private router: Router,
+    private authService:AuthService
   ) { }
 
 
@@ -41,36 +46,55 @@ export class UserloginComponent implements OnInit {
     });
   }
 
-  // if(this.addForm.valid){
-  //   console.log('Validated');
-  //   this.userService.addUser(this.addForm.value)
-  //   .subscribe( data => {
-  //   console.log(data);
-  //   });
-  //   this.check=true;
-  // }
+  login(){
+    this.submitted = false;
+    this.user = new User();
+  }
 
 
-  onSubmit(){
-    console.log(this.loginForm.value);
 
-    // if(this.loginForm.valid === true){
-    //   alert('Login Successfull');
-    // }else{
-    //   alert('Login Failed');
-    // }
-    if(this.loginForm.valid){
+  onLogin(user, pass){
+    this.userService.authentication(this.loginForm.value)
+    .subscribe( data => {
+      console.log(data);
+      // if(this.loginForm.value){
+        if(data==true){
         this.check = true;
-        this.userService.authentication(this.loginForm.value)
-        .subscribe( data => {
-        console.log(data);
-        alert('Login Successfull');
+        localStorage.setItem('islogin', "true");
+        localStorage.setItem('type', "ForUser");
+        localStorage.setItem('username', user);
+        alert('Your Login successfull');
         this.router.navigate(['/home']);
-        });
-    }else{
-      this.check = false;
-      alert('Invalid username or password');
-      this.router.navigate(['/userlogin']);
-    }
+      }else{
+        this.check = false;
+      }
+    });
+    //this.check = false;
+  }
+
+  loginStatus(){
+    this.authService.valid().subscribe((data) => {
+      (console.log(data),error=>console.error(error));
+       this.isLogin = data
+    });
+
   }
 }
+
+  // onSubmit(){
+  //   console.log(this.loginForm.value);
+  //   if(this.loginForm.valid){
+  //       this.check = true;
+  //       this.userService.authentication(this.loginForm.value)
+  //       .subscribe( data => {
+  //       console.log(data);
+  //       alert('Login Successfull');
+  //       this.router.navigate(['/home']);
+  //       });
+  //   }else{
+  //     this.check = false;
+  //     alert('Invalid username or password');
+  //     this.router.navigate(['/userlogin']);
+  //   }
+  // }
+

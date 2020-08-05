@@ -24,27 +24,30 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home" aria-hidden="true"></i><b>Home</b></a>
       </li>
-
-      <li>
-        <div class="btn-group active" dropdown>
-          <a id="button-animated" dropdownToggle type="button" class="nav-item nav-link dropdown-toggle mr-md-2">
-                <i class="fa fa-sign-in" aria-hidden="true"></i><b>Login</b>
-          </a>
-          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
-              role="menu" aria-labelledby="button-animated">
-            <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-black-tie" aria-hidden="true"></i>&nbsp;Admin Login</a></li>
-            <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;Washer Login</a></li>
-            <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Customer Login</a></li>
-          </ul>
-        </div>
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/carservices']"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;<b>Car Service</b></a>
       </li>
-
+      <li class="nav-item active" *ngIf="read()=='true'">
+        <a class="nav-link" [routerLink]="['/car']"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<b>Schedule Online</b></a>
+      </li>
     </ul>
   </div>
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-
-    <li class="nav-item active">
-      <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-sign-out" aria-hidden="true"></i><b>Logout</b></a>
+    <li>
+      <div class="btn-group active" *ngIf="read()=='false'" dropdown>
+        <a id="button-animated" dropdownToggle type="button" class="nav-item nav-link dropdown-toggle mr-md-2">
+              <i class="fa fa-sign-in" aria-hidden="true"></i><b>Login</b>
+        </a>
+        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-animated">
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-black-tie" aria-hidden="true"></i>&nbsp;Admin Login</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;Washer Login</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Customer Login</a></li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item active" *ngIf="read()=='true'">
+    <a type="submit" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i><b>Logout</b></a>
      </li>
   </ul>
 </nav>
@@ -88,9 +91,9 @@
 
       <div class="col-md-3">
         <h3>Address Us</h3>
-        <p><i class="fa fa-map-marker" aria-hidden="true"></i>#82, 17th Cross, 32nd Main, JP Nagar, Phase 6, Bangalore 560078</p>
-        <p><i class="fa fa-phone" aria-hidden="true"></i>1800 3008 3008</p>
-        <p><i class="fa fa-envelope-o" aria-hidden="true"></i>info@carwash.com</p>
+        <p id="address"><i class="fa fa-map-marker" aria-hidden="true"></i>#4, 5th Cross, 2nd Main, Basaveshwaranagar, Bangalore 560078</p>
+        <p id="address"><i class="fa fa-phone" aria-hidden="true"></i>1800 4505 3453</p>
+        <p id="address"><i class="fa fa-envelope-o" aria-hidden="true"></i>info@carwash.com</p>
       </div>
       <div class="col-md-4">
         <div class="map">

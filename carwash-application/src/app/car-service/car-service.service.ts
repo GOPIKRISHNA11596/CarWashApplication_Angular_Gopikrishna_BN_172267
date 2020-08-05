@@ -2,46 +2,35 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { User } from './user';
+import { CarService } from './car-service';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class CarServiceService {
 
   baseUri: string = 'http://localhost:3000';
-  user: User[];
+  carService: CarService[];
 
   constructor(private http : HttpClient) { }
 
-  getUsers(): Observable<User[]> {
 
-    let url = `${this.baseUri}/users`;
-     //return this.http.get<Book[]>(this.userUrl).pipe(
-    return this.http.get<User[]>(url).pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
+  getServices(): Observable<CarService[]> {
+    let url = `${this.baseUri}/carservices`;
+    return this.http.get<CarService[]>(url).pipe(
+        // tap(data => console.log('All: ' + JSON.stringify(data))),
+        tap(),
         catchError(this.handleError)
       );
   }
 
-  getUser(id: string): Observable<User | undefined> {
-    return this.getUsers()
+  getService(id: number): Observable<CarService | undefined> {
+    return this.getServices()
       .pipe(
-        map((books: User[]) => books.find(p => p.username === id))
+        map((service: CarService[]) => service.find(p => p.packageID === id))
       );
   }
-
-  addUser(user : User[]): Observable<User[]> {
-    let url = `${this.baseUri}/users/register`;
-    return this.http.post<User[]>(url, user);
-
- }
-
- authentication(user : User): Observable<Object> {
-  let url = `${this.baseUri}/users/authenticate`;
-  return this.http.post<Object>(url, user);
-}
-
 
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
