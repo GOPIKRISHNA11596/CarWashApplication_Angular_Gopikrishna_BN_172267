@@ -1,5 +1,6 @@
 export class Car{
 
+  username: string;
   carID: number;
   carBrand: string;
   carType: string;

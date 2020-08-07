@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,7 +15,9 @@ import { UserregistrationComponent } from './userlogin/userregistration.componen
 import { CarServiceComponent } from './car-service/car-service.component';
 import { CarComponent } from './car/car.component';
 import { BookingComponent } from './booking/booking.component';
-
+import { ProfileComponent } from './profile/profile.component';
+import { WasherComponent } from './washer/washer.component';
+import { WasherloginComponent } from './washer/washerlogin.component';
 
 
 @NgModule({
@@ -27,7 +28,10 @@ import { BookingComponent } from './booking/booking.component';
     UserregistrationComponent,
     CarServiceComponent,
     CarComponent,
-    BookingComponent
+    BookingComponent,
+    ProfileComponent,
+    WasherComponent,
+    WasherloginComponent
   ],
   imports: [
     BrowserModule,

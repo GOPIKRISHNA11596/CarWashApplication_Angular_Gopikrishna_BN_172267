@@ -7,22 +7,33 @@ import { UserregistrationComponent } from './userlogin/userregistration.componen
 import { CarServiceComponent } from './car-service/car-service.component';
 import { CarComponent } from './car/car.component';
 import { BookingComponent } from './booking/booking.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './userlogin/auth.guard';
+import { WasherComponent } from './washer/washer.component';
+import { WasherloginComponent } from './washer/washerlogin.component';
+
+
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'userlogin', component: UserloginComponent },
   { path: 'userregister', component: UserregistrationComponent },
-  { path: 'car', component: CarComponent },
-  { path: 'carservices', component: CarServiceComponent },
+  { path: 'washerregister', component: WasherComponent },
+  { path: 'washerlogin', component: WasherloginComponent },
+  { path: 'profile' ,component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'car', component: CarComponent, canActivate: [AuthGuard] },
+  { path: 'carservices', component: CarServiceComponent,  },
   { path: 'carservices/:id', component: CarServiceComponent },
-  { path: 'booking', component: BookingComponent },
+  { path: 'booking', component: BookingComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation: 'reload'
+  })],
   exports: [RouterModule]
 })
 

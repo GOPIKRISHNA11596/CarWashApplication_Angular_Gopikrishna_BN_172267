@@ -2,43 +2,43 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { User } from './user';
+import { Washer } from './washer';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class WasherService {
 
-  baseUri: string = 'http://localhost:3000';
-  user: User[];
+  baseUri:string = 'http://localhost:3000';
+  washer: Washer[];
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> {
+  getWashers(): Observable<Washer[]> {
 
-    let url = `${this.baseUri}/users`;
-    return this.http.get<User[]>(url).pipe(
+    let url = `${this.baseUri}/washers`;
+    return this.http.get<Washer[]>(url).pipe(
         tap(data => console.log('All: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
 
-  getUser(id: string): Observable<User | undefined> {
-    return this.getUsers()
+  getWasher(id: string): Observable<Washer | undefined> {
+    return this.getWashers()
       .pipe(
-        map((users: User[]) => users.find(p => p.username === id))
+        map((washers: Washer[]) => washers.find(p => p.username === id))
       );
   }
 
-  addUser(user : User[]): Observable<User[]> {
-    let url = `${this.baseUri}/users/register`;
-    return this.http.post<User[]>(url, user);
+  addWasher(washer : Washer[]): Observable<Washer[]> {
+    let url = `${this.baseUri}/washers/register`;
+    return this.http.post<Washer[]>(url, washer);
   }
 
- authentication(user : User): Observable<Object> {
-  let url = `${this.baseUri}/users/authenticate`;
-  return this.http.post<Object>(url, user);
-}
+  authentication(washer : Washer[]): Observable<Object> {
+    let url = `${this.baseUri}/washers/authenticate`;
+    return this.http.post<Object>(url, washer);
+  }
 
 
   private handleError(err: HttpErrorResponse) {
@@ -51,4 +51,5 @@ export class UserService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
+
 }

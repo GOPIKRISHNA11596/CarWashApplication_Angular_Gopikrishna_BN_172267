@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4" id="loginFrom">
+      <div style="text-align: center;">
+       <h3>Your Profile</h3>
+        <i class="fa  fa-user-circle fa-5x" aria-hidden="true"></i>
+        <div>
+          <label for="fname">Hey, <strong>{{user.username}}</strong></label>
+        </div>
+        <br>
+        <div>
+          <table class="table">
+            <tbody>
+              <tr>
+                <th style="width:160px">First Name</th>
+                <td>{{user.firstName}}</td>
+              </tr>
+              <tr>
+                <th >Last Name</th>
+                <td>{{user.lastName}}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{{user.email}}</td>
+              </tr>
+              <tr>
+                <th>Contact No</th>
+                <td>{{user.contactNo}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

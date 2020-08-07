@@ -4,17 +4,17 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4" id="carForm">
-      <div style="text-align: center;">
+      <div style="text-align: center;" id="borderline">
         <i class="fa fa-car fa-5x" aria-hidden="true"></i>
         <h4>Provide Car Details</h4>
       </div>
-
+      <br>
       <form [formGroup]="carForm" [hidden]="submitted" (ngSubmit)="onSubmit()">
         <!-- Car Brand -->
         <div class="form-group">
           <label>Car Brand :</label>
           <input type="text" formControlName="carBrand" placeholder="Car Brand" id="carBrand" class="form-control"
-            required>
+                 [(ngModel)]="car.carBrand" required>
         </div>
         <!-- Car Brand Validation  -->
         <div *ngFor="let validation of car_validation_messages.carBrand">
@@ -29,7 +29,7 @@
         <div class="form-group">
           <label>Car Type :</label>
           <input type="text" formControlName="carType" id="carType" placeholder="Car Type" id="carType"
-            class="form-control" required>
+            class="form-control" [(ngModel)]="car.carType" required>
         </div>
         <!-- Car Type Validation  -->
         <div *ngFor="let validation of car_validation_messages.carType">
@@ -43,7 +43,8 @@
         <!-- year -->
         <div class="form-group">
           <label>Year :</label>
-          <input type="text" formControlName="year" placeholder="Year" id="year" class="form-control" required>
+          <input type="text" formControlName="year" placeholder="Year" id="year" class="form-control"
+                 [(ngModel)]="car.year" required>
         </div>
         <!--year Validation -->
         <div *ngFor="let validation of car_validation_messages.year">
@@ -55,9 +56,10 @@
         </div>
 
         <!-- Color  -->
-        <div class="form-group">
+        <div class="form-group" >
           <label>Color :</label>
-          <input type="text" formControlName="color" placeholder="Color" id="color" class="form-control" required>
+          <input type="text" formControlName="color" placeholder="Color" id="color" class="form-control"
+                  [(ngModel)]="car.color" required>
         </div>
         <!-- Color Validation -->
         <div *ngFor="let validation of car_validation_messages.color">
@@ -67,7 +69,8 @@
             {{validation.message}}
           </div>
         </div>
-
+        <div id="borderline"></div>
+        <br>
         <!-- Submit Button -->
         <div class="form-group">
           <button class="btn btn-primary" type="submit">NEXT</button>

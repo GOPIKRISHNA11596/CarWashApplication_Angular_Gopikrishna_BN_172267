@@ -3,7 +3,7 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4" id="loginFrom">
-      <h3 style="text-align: center;">Customer Login</h3>
+      <h3 style="text-align: center;">Washer Login</h3>
       <br>
       <div style="text-align: center;">
         <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
@@ -16,7 +16,7 @@
       <form [formGroup]="loginForm" > <!-- (ngSubmit)="onSubmit()"> -->
         <!-- UserName -->
         <div class="form-group">
-          <input type="text" formControlName="username" placeholder="USERNAME" id="username" class="form-control"  [(ngModel)]="user.username"
+          <input type="text" formControlName="username" placeholder="USERNAME" id="username" class="form-control"  [(ngModel)]="washer.username"
            required>
         </div>
         <!-- Validating Username -->
@@ -30,7 +30,7 @@
         <!-- Password  -->
         <div class="form-group">
           <input type="password" formControlName="password" placeholder="PASSWORD" class="form-control" id="password"
-              [(ngModel)]="user.password" required>
+              [(ngModel)]="washer.password" required>
         </div>
         <!-- Validating Username -->
         <div *ngFor="let validation of validationMessages.password">
@@ -46,7 +46,7 @@
         </div>
         <br>
         <div class="text-center">
-          Don't have an account? <a [routerLink]="['/userregister']">SignUp</a>
+          Don't have an account? <a [routerLink]="['/washerregister']">SignUp</a>
         </div>
       </form>
     </div>
@@ -54,3 +54,5 @@
     </div>
   </div>
 </div>
+
+

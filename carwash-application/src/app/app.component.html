@@ -27,28 +27,41 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/carservices']"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;<b>Car Service</b></a>
       </li>
-      <li class="nav-item active" *ngIf="read()=='true'">
+      <li class="nav-item active" *ngIf="readUser()=='true'">
         <a class="nav-link" [routerLink]="['/car']"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<b>Schedule Online</b></a>
       </li>
     </ul>
   </div>
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
     <li>
-      <div class="btn-group active" *ngIf="read()=='false'" dropdown>
+      <div class="btn-group active" *ngIf="readUser()=='false'" dropdown>
         <a id="button-animated" dropdownToggle type="button" class="nav-item nav-link dropdown-toggle mr-md-2">
-              <i class="fa fa-sign-in" aria-hidden="true"></i><b>Login</b>
+              <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;<b>Login</b>
         </a>
-        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu"
+        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
             role="menu" aria-labelledby="button-animated">
-          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-black-tie" aria-hidden="true"></i>&nbsp;Admin Login</a></li>
-          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;Washer Login</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/']"><i class="fa fa-black-tie" aria-hidden="true"></i>&nbsp;Admin Login</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/washerlogin']"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;Washer Login</a></li>
           <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Customer Login</a></li>
         </ul>
       </div>
     </li>
-    <li class="nav-item active" *ngIf="read()=='true'">
-    <a type="submit" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i><b>Logout</b></a>
-     </li>
+    <li>
+      <div class="btn-group active" *ngIf="readUser()=='true'" dropdown>
+        <a id="button-animated" dropdownToggle type="button" class="nav-item nav-link dropdown-toggle mr-md-2">
+               <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+        </a>
+        <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+            role="menu" aria-labelledby="button-animated">
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/profile']">Your Profile</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/profile']">Help</a></li>
+          <div class="dropdown-divider"></div>
+          <li role="menuitem">
+            <a type="submit" class="dropdown-item" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;<b>Logout</b></a>
+          </li>
+        </ul>
+      </div>
+    </li>
   </ul>
 </nav>
 <div class="card">

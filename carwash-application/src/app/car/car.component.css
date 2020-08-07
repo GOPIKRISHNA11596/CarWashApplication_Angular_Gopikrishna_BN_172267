@@ -3,3 +3,9 @@
   padding: 40px 25px;
   border-radius: 15px;
 }
+#borderline{
+  border-bottom : solid 2px #c02b3a;
+}
+button {
+  float: right;
+}

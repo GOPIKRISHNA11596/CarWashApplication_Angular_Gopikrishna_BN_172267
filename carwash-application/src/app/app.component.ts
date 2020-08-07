@@ -12,15 +12,22 @@ export class AppComponent {
   constructor(private router: Router){
   }
 
-  read()
-  {
-    return localStorage.getItem('islogin');
+  // tslint:disable-next-line: typedef
+  readUser(){
+     return localStorage.getItem('isuserlogin');
   }
-  logout(){
-    localStorage.setItem('islogin',"false");
-    alert('Do you want to logout?');
-    this.router.navigate(['/home']);
 
+  readWasher(){
+    return localStorage.getItem('iswasherlogin');
+  }
+
+  // tslint:disable-next-line: typedef
+  logout(){
+    const r = confirm('Do you want to logout?');
+    if (r === true){
+    localStorage.setItem('isuserlogin', 'false');
+    this.router.navigate(['/home']);
+    }
   }
 
 }

@@ -1,36 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/Router';
-import { FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
-import { UserService } from './user.service';
-import { User } from './user';
-
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { WasherService } from './washer.service';
+import { Washer } from './washer';
 
 @Component({
-  selector: 'app-userregistration',
-  templateUrl: './userregistration.component.html',
-  styleUrls: ['./userregistration.component.css']
+  selector: 'app-washer',
+  templateUrl: './washer.component.html',
+  styleUrls: ['./washer.component.css']
 })
-
-export class UserregistrationComponent implements OnInit {
-
-  pageTitle : string ='Register';
-
-  constructor(private userService : UserService,
-              private router : Router,
-              private formBuilder: FormBuilder) { }
+export class WasherComponent implements OnInit {
 
   addForm: FormGroup;
   submitted = false;
-  check=false;
-  register:User=new User();
+  check = false;
+  register: Washer = new Washer();
+
+  constructor(private washerService: WasherService,
+              private router: Router,
+              private formBuilder: FormBuilder) { }
 
   //Error Messages for validation
   account_validation_messages = {
-    firstName: [
-      { type: 'required', message: 'First Name is required' }
+    Name: [
+      { type: 'required', message: 'Name is required' }
     ],
-    lastName: [
-      { type: 'required', message: 'Last Name is required' }
+    company: [
+      { type: 'required', message: 'Company Name is required' }
     ],
     username: [
       { type: 'required', message: 'Username is required' },
@@ -63,44 +59,42 @@ export class UserregistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({
-        firstName : ['', Validators.required],
-        lastName : ['', Validators.required],
-        email : ['',  [ Validators.required,
+        Name: ['', Validators.required],
+        company: ['', Validators.required],
+        email: ['',  [ Validators.required,
                         Validators.pattern('[a-zA-Z0-9_.+-]+@gmail.com+$')]],
-        contactNo : ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
+        contactNo: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
                           Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-        username:['', [Validators.required,Validators.maxLength(20),Validators.minLength(3)] ],
-        password :['', [ Validators.required,Validators.maxLength(15),Validators.minLength(8),
+        username: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(3)] ],
+        password: ['', [ Validators.required, Validators.maxLength(15), Validators.minLength(8),
                          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')] ],
-        confirmPassword:['', [ Validators.required, Validators.maxLength(15),Validators.minLength(8),
+        confirmPassword: ['', [ Validators.required, Validators.maxLength(15), Validators.minLength(8),
                                Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')] ]
       });
   }
 
+
+  // tslint:disable-next-line: typedef
   onSubmit(){
-    //For My refernce
     console.log(this.addForm.value);
     this.submitted = true;
 
-    if(this.addForm.valid === false){
+    if (this.addForm.valid === false){
         alert('Enter Valid Data');
     }
-    if(this.addForm.valid === true){
+    if (this.addForm.valid === true){
       alert('Registration Successfull')
   }
 
-    if(this.addForm.valid){
+    if (this.addForm.valid){
       console.log('Validated');
-      this.userService.addUser(this.addForm.value)
+      this.washerService.addWasher(this.addForm.value)
       .subscribe( data => {
       console.log(data);
-      this.router.navigate(['/userlogin']);
+      this.router.navigate(['/washerlogin']);
       });
-      this.check=true;
+      this.check = true;
     }
   }
-
-
-
 
 }
