@@ -1,0 +1,122 @@
+
+<div class="container-fluid">
+  <div class="row" id="borderline1">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h3 style="text-align: center;">Review Your Details</h3>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div  class="col-md-4">
+      <h5 id="borderline">Car Information</h5>
+      <table class="table" id="rightBorder">
+        <tr>
+          <th>Car Brand </th>
+          <td>{{car.carBrand}}</td>
+        </tr>
+        <tr>
+          <th>Car Type </th>
+          <td>{{car.carType}}</td>
+        </tr>
+        <tr>
+          <th>Color </th>
+          <td>{{car.color}}</td>
+        </tr>
+        <tr>
+          <th>Year </th>
+          <td>{{car.year}}</td>
+        </tr>
+      </table>
+    </div>
+    <div  class="col-md-4">
+      <h5 id="borderline">Service Information</h5>
+      <table class="table" id="rightBorder">
+        <tr>
+          <th>Package ID</th>
+          <td>{{serviceSelected.packageID}}</td>
+        </tr>
+        <tr>
+          <th>Package Name</th>
+          <td>{{carServiceModel.packageName}}</td>
+        </tr>
+        <tr>
+          <th>Package Description</th>
+          <td>
+            <ul>
+              <li>{{carServiceModel.packageDescrpion.service1}}</li>
+              <li>{{carServiceModel.packageDescrpion.service2}}</li>
+              <li>{{carServiceModel.packageDescrpion.service3}}</li>
+              <li>{{carServiceModel.packageDescrpion.service4}}</li>
+              <li>{{carServiceModel.packageDescrpion.service5}}</li>
+              <li>{{carServiceModel.packageDescrpion.service6}}</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th>Package Amount</th>
+          <td><i class="fa fa-rupee"></i>{{carServiceModel.packageAmount}}</td>
+        </tr>
+      </table>
+    </div>
+    <div  class="col-md-4">
+     <h5 id="borderline">Location and Date Information</h5>
+     <table class="table" id="rightBorder">
+      <tr>
+        <th>Booking ID</th>
+        <td>{{booking.bookingID}}</td>
+      </tr>
+      <tr>
+        <th>Date</th>
+        <td>{{booking.date}}</td>
+      </tr>
+      <tr>
+        <th>Time</th>
+        <td>{{booking.time}}</td>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td>
+          <p id="address"><i class="fa fa-map-marker" aria-hidden="true"></i>#{{booking.doorNumber}}, {{booking.street}},
+            {{booking.city}}, {{booking.district}}, {{booking.state}} - {{booking.pincode}}</p>
+        </td>
+      </tr>
+      <tr>
+        <th>Landmark</th>
+        <td>{{booking.landmark}}</td>
+      </tr>
+      </table>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <h5 id="borderline">Your Final Cart Value</h5>
+      <table class="table" id="rightBorder">
+        <tr>
+          <th>Cart Value</th>
+          <td><i class="fa fa-rupee"></i>{{carServiceModel.packageAmount}}</td>
+        </tr>
+        <tr>
+          <th>Service Tax (18%)</th>
+          <!-- <td><i class="fa fa-rupee"></i>{{((carServiceModel.packageAmount)*18)/100}}</td> -->
+          <td><i class="fa fa-rupee"></i>{{readServiceTax()}}</td>
+
+        </tr>
+        <tr style="background-color:black; color: white;">
+          <th>Total </th>
+          <td><i class="fa fa-rupee"></i>{{readTotal()}}</td>
+        </tr>
+      </table>
+      <button type="submit" class="btn btn-primary"  [routerLink]="['/payment']" >Payment</button>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

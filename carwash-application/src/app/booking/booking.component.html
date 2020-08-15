@@ -3,19 +3,62 @@
     <div class="col-md-4">
     </div>
     <div class="col-md-4" id="booking">
+      <form [formGroup]="bookingForm" [hidden]="submitted" (ngSubmit)="onSubmit()">
       <div class="row">
         <h3>Pick a Date & Time</h3>
-        <input type="date">
+        <br>
+        <br>
+        <div class="form-group">
+          <label for="date"><h6>Date :</h6></label>
+          <input type="date" class="form-control" id="date" [(ngModel)]="booking.date" formControlName = "date" required>
+        </div>
+        <br>
+        &nbsp;
+        <div class="form-group">
+          <label for="time"><h6>Time :</h6></label>
+          <input type="time" class="form-control" id="time" [(ngModel)]="booking.time"  formControlName = "time" required>
+        </div>
       </div>
-      <br>
+      &nbsp; &nbsp;
       <div class="row">
         <h3>Provide your loaction</h3>
-
+        <br>
+        <br>
+        <div class="form-group">
+          <h6>Door No. :</h6>
+          <input type="text" class="form-control" id="doorNumber" [(ngModel)]="booking.doorNumber"  formControlName = "doorNumber" required>
+        </div>
+        <div class="form-group">
+          <h6>Street :</h6>
+          <input type="text" class="form-control" id="street" [(ngModel)]="booking.street" formControlName = "street" required>
+        </div>
+        <div class="form-group">
+          <h6>Landmark :</h6>
+          <input type="text" class="form-control" id="landmark" [(ngModel)]="booking.landmark"  formControlName = "landmark" required>
+        </div>
+        <div class="form-group">
+          <h6>City :</h6>
+          <input type="text" class="form-control" id="city" [(ngModel)]="booking.city" formControlName = "city" required>
+        </div>
+        <div class="form-group">
+          <h6>District :</h6>
+          <input type="text" class="form-control" id="district" [(ngModel)]="booking.district" formControlName = "district"  required>
+        </div>
+        <div class="form-group">
+          <h6>State :</h6>
+          <input type="text" class="form-control" id="state" [(ngModel)]="booking.state" formControlName = "state" required>
+        </div>
+        <div class="form-group">
+          <h6>Pincode :</h6>
+          <input type="text" class="form-control" id="pincode" [(ngModel)]="booking.pincode" formControlName = "pincode" required>
+        </div>
       </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">NEXT</button>
+      </div>
+      </form>
     </div>
     <div class="col-md-4">
     </div>
-
-
   </div>
 </div>

@@ -6,5 +6,6 @@ export class Car{
   carType: string;
   year: number;
   color: string;
+  carImage: string;
 
 }

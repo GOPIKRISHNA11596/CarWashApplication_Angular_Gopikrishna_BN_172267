@@ -7,11 +7,15 @@
        <h3>Your Profile</h3>
         <i class="fa  fa-user-circle fa-5x" aria-hidden="true"></i>
         <div>
-          <label for="fname">Hey, <strong>{{user.username}}</strong></label>
+          <label for="fname">Hey,
+            <strong *ngIf="readUser()=='true'">{{user.username}}</strong>
+            <strong *ngIf="readWasher()=='true'">{{washer.username}}</strong>
+          </label>
         </div>
         <br>
         <div>
-          <table class="table">
+          <!-- User Profile -->
+          <table class="table" *ngIf="readUser()=='true'">
             <tbody>
               <tr>
                 <th style="width:160px">First Name</th>
@@ -32,6 +36,27 @@
             </tbody>
           </table>
 
+          <!-- Washer Profile -->
+          <table class="table" *ngIf="readWasher()=='true'">
+            <tbody>
+              <tr>
+                <th style="width:160px">Name</th>
+                <td>{{washer.Name}}</td>
+              </tr>
+              <tr>
+                <th >Company Name</th>
+                <td>{{washer.company}}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{{washer.email}}</td>
+              </tr>
+              <tr>
+                <th>Contact No</th>
+                <td>{{washer.contactNo}}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
     </div>
     <div class="col-md-4">

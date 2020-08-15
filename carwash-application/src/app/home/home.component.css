@@ -11,7 +11,7 @@
   background-color: black;
 }
 
-b {
+#pageTitle{
   color: white;
 }
 .solid {
@@ -21,3 +21,7 @@ b {
   border-radius: 15px;
 }
 
+
+.modal-title {
+  margin: 0 auto;
+}

@@ -1,0 +1,22 @@
+#imageBorderRadius{
+  border-radius: 15px;
+}
+
+.imgBox {
+  opacity: 1;
+}
+
+.imgBox:hover {
+  opacity: 0.3;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper {
+  text-align: center;
+}
+

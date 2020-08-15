@@ -18,7 +18,12 @@ import { BookingComponent } from './booking/booking.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WasherComponent } from './washer/washer.component';
 import { WasherloginComponent } from './washer/washerlogin.component';
-
+import { ServiceRequestComponent } from './service-request/service-request.component';
+import { ServiceRequestDescriptionComponent } from './service-request-description/service-request-description.component';
+import { CarwashserviceComponent } from './carwashservice/carwashservice.component';
+import { PaymentComponent } from './payment/payment.component';
+import { CartComponent } from './cart/cart.component';
+import { SuccessfullComponent } from './successfull/successfull.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +36,13 @@ import { WasherloginComponent } from './washer/washerlogin.component';
     BookingComponent,
     ProfileComponent,
     WasherComponent,
-    WasherloginComponent
+    WasherloginComponent,
+    ServiceRequestComponent,
+    ServiceRequestDescriptionComponent,
+    CarwashserviceComponent,
+    PaymentComponent,
+    CartComponent,
+    SuccessfullComponent
   ],
   imports: [
     BrowserModule,

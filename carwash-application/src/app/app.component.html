@@ -30,11 +30,14 @@
       <li class="nav-item active" *ngIf="readUser()=='true'">
         <a class="nav-link" [routerLink]="['/car']"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<b>Schedule Online</b></a>
       </li>
+      <li class="nav-item active" *ngIf="readWasher()=='true'">
+        <a class="nav-link" [routerLink]="['/servicerequest']"><b>Service Request</b></a>
+      </li>
     </ul>
   </div>
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
     <li>
-      <div class="btn-group active" *ngIf="readUser()=='false'" dropdown>
+      <div class="btn-group active" *ngIf="read()=='false'" dropdown>
         <a id="button-animated" dropdownToggle type="button" class="nav-item nav-link dropdown-toggle mr-md-2">
               <i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;<b>Login</b>
         </a>
@@ -47,7 +50,7 @@
       </div>
     </li>
     <li>
-      <div class="btn-group active" *ngIf="readUser()=='true'" dropdown>
+      <div class="btn-group active" *ngIf="read()=='true'" dropdown>
         <a id="button-animated" dropdownToggle type="button" class="nav-item nav-link dropdown-toggle mr-md-2">
                <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
         </a>

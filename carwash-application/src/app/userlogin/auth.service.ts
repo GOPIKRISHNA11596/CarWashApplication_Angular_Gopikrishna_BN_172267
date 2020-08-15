@@ -9,7 +9,11 @@ export class AuthService {
   constructor() { }
 
   checkingstatus(): Observable<boolean>{
-       return JSON.parse(localStorage.getItem('isuserlogin'));
+       if (localStorage.getItem('isuserlogin') === 'true'){
+        return JSON.parse(localStorage.getItem('isuserlogin'));
+       }else{
+        return JSON.parse(localStorage.getItem('iswasherlogin'));
+       }
     }
 
 

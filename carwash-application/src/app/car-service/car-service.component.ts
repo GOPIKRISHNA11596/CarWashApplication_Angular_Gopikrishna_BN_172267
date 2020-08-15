@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarService } from './car-service';
+import { CarServiceModel } from './car-service';
 import { ActivatedRoute, Router} from '@angular/Router';
 import { CarServiceService } from './car-service.service';
 
@@ -10,9 +10,8 @@ import { CarServiceService } from './car-service.service';
 })
 export class CarServiceComponent implements OnInit {
 
-  //carService:CarService = new CarService();
-  carService : CarService | undefined;
-  errorMessage : string;
+  carServiceModel: CarServiceModel | undefined;
+  errorMessage: string;
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -31,11 +30,11 @@ export class CarServiceComponent implements OnInit {
   getService(id: number) {
     this.carServiceService.getService(id).
     subscribe((service) => {
-       this.carService = service;
+       this.carServiceModel = service;
     });
   }
 
   read(){
-    return localStorage.getItem('islogin');
+    return localStorage.getItem('isuserlogin');
   }
 }

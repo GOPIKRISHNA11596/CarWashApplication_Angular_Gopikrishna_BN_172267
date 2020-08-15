@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { CarService } from './car-service';
+import { CarServiceModel } from './car-service';
 
 
 @Injectable({
@@ -11,24 +11,24 @@ import { CarService } from './car-service';
 export class CarServiceService {
 
   baseUri: string = 'http://localhost:3000';
-  carService: CarService[];
+  carService: CarServiceModel[];
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
 
-  getServices(): Observable<CarService[]> {
-    let url = `${this.baseUri}/carservices`;
-    return this.http.get<CarService[]>(url).pipe(
+  getServices(): Observable<CarServiceModel[]> {
+    const url = `${this.baseUri}/carservices`;
+    return this.http.get<CarServiceModel[]>(url).pipe(
         // tap(data => console.log('All: ' + JSON.stringify(data))),
         tap(),
         catchError(this.handleError)
       );
   }
 
-  getService(id: number): Observable<CarService | undefined> {
+  getService(id: number): Observable<CarServiceModel | undefined> {
     return this.getServices()
       .pipe(
-        map((service: CarService[]) => service.find(p => p.packageID === id))
+        map((service: CarServiceModel[]) => service.find(p => p.packageID === id))
       );
   }
 

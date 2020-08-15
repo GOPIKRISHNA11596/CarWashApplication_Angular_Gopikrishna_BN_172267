@@ -11,8 +11,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './userlogin/auth.guard';
 import { WasherComponent } from './washer/washer.component';
 import { WasherloginComponent } from './washer/washerlogin.component';
-
-
+import { ServiceRequestComponent } from './service-request/service-request.component';
+import { CarwashserviceComponent } from './carwashservice/carwashservice.component';
+import { PaymentComponent } from './payment/payment.component';
+import { CartComponent } from './cart/cart.component';
+import { SuccessfullComponent } from './successfull/successfull.component';
 
 
 const routes: Routes = [
@@ -21,11 +24,16 @@ const routes: Routes = [
   { path: 'userregister', component: UserregistrationComponent },
   { path: 'washerregister', component: WasherComponent },
   { path: 'washerlogin', component: WasherloginComponent },
-  { path: 'profile' ,component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile' , component: ProfileComponent , canActivate: [AuthGuard] },
   { path: 'car', component: CarComponent, canActivate: [AuthGuard] },
-  { path: 'carservices', component: CarServiceComponent,  },
-  { path: 'carservices/:id', component: CarServiceComponent },
+  { path: 'carservices', component: CarServiceComponent},
+  { path: 'carwashservices', component: CarwashserviceComponent, canActivate: [AuthGuard]},
+  { path: 'carwashservices/:id', component: CarwashserviceComponent, canActivate: [AuthGuard]},
   { path: 'booking', component: BookingComponent, canActivate: [AuthGuard] },
+  { path: 'servicerequest', component: ServiceRequestComponent},
+  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'success', component: SuccessfullComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }
 ];

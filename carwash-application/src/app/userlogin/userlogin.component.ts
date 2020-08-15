@@ -43,8 +43,6 @@ export class UserloginComponent implements OnInit {
       password: ['', [Validators.required]],
     });
   }
-
-
   // tslint:disable-next-line: typedef
   onLogin(){
     this.userService.authentication(this.loginForm.value)
@@ -53,9 +51,14 @@ export class UserloginComponent implements OnInit {
       if (data === true){
         this.check = true;
         localStorage.setItem('isuserlogin', 'true');
+        localStorage.setItem('iswasherlogin', 'false');
         localStorage.setItem('type', 'ForUser');
         localStorage.setItem('username', this.user.username);
-        console.log(localStorage.getItem('username'));
+
+        console.log('Username : ' + localStorage.getItem('username'));
+        console.log('Is User login : ' + localStorage.getItem('isuserlogin'));
+        console.log('Is Washer login : ' + localStorage.getItem('iswasherlogin'));
+
         alert('Your Login successfull');
         this.router.navigate(['/home']);
       }else{
