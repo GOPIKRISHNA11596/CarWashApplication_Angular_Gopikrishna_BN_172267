@@ -32,6 +32,14 @@ export class CarServiceService {
       );
   }
 
+
+  getServiceByUserName(username: string): Observable<CarServiceModel | undefined> {
+    return this.getServices()
+      .pipe(
+        map((service: CarServiceModel[]) => service.find(p => p.username === username))
+      );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

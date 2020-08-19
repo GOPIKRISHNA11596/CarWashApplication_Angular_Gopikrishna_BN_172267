@@ -10,3 +10,10 @@ th,tr{
 h4{
   border-bottom : solid 2px blue;
 }
+p{
+  line-height: 70%;
+}
+.wrapper {
+  text-align: center;
+}
+

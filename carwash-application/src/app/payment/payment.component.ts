@@ -5,6 +5,10 @@ import { Booking } from '../booking/booking';
 import { BookingService } from '../booking/booking.service';
 import { Payment } from './payment';
 import { PaymentService } from './payment.service';
+import { Car } from '../car/car';
+import { CarService } from '../car/car.service';
+import { ServiceSelected } from '../carwashservice/service-selected';
+import { ServiceSelectedService } from '../carwashservice/service-selected.service'
 
 
 @Component({
@@ -15,13 +19,18 @@ import { PaymentService } from './payment.service';
 export class PaymentComponent implements OnInit {
 
   submitted = false;
+  serviceSelected: ServiceSelected = new ServiceSelected();
+  car: Car = new Car();
   booking: Booking = new Booking();
   payment: Payment = new Payment();
   errorMessage = '';
   paymentForm: FormGroup;
 
+
   constructor(  private bookingService: BookingService,
                 private paymentService: PaymentService,
+                private carService: CarService,
+                private serviceSelectedService: ServiceSelectedService,
                 private router: Router,
                 private formBuilder: FormBuilder) { }
 
@@ -68,7 +77,6 @@ export class PaymentComponent implements OnInit {
     this.submitted = true;
     this.payment.username = localStorage.getItem('username');
     console.log('Payment : ' + this.paymentForm.value);
-
     if (this.paymentForm.valid){
         this.paymentService.addPayment(this.paymentForm.value)
         .subscribe( data => {
@@ -79,5 +87,6 @@ export class PaymentComponent implements OnInit {
     }
     console.log(this.payment);
   }
+
 
 }

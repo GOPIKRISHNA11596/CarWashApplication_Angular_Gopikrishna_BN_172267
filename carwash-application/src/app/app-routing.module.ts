@@ -16,14 +16,22 @@ import { CarwashserviceComponent } from './carwashservice/carwashservice.compone
 import { PaymentComponent } from './payment/payment.component';
 import { CartComponent } from './cart/cart.component';
 import { SuccessfullComponent } from './successfull/successfull.component';
+import { ServiceRequestDescriptionComponent } from './service-request-description/service-request-description.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { AdminloginComponent} from './admin/adminlogin.component';
+import { UserDetailsComponent} from './user-details/user-details.component';
+import { WasherDetailsComponent} from './washer-details/washer-details.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'adminlogin', component: AdminloginComponent},
   { path: 'userlogin', component: UserloginComponent },
   { path: 'userregister', component: UserregistrationComponent },
   { path: 'washerregister', component: WasherComponent },
   { path: 'washerlogin', component: WasherloginComponent },
+  { path: 'userdetails', component: UserDetailsComponent },
+  { path: 'washerdetails', component: WasherDetailsComponent },
   { path: 'profile' , component: ProfileComponent , canActivate: [AuthGuard] },
   { path: 'car', component: CarComponent, canActivate: [AuthGuard] },
   { path: 'carservices', component: CarServiceComponent},
@@ -31,7 +39,13 @@ const routes: Routes = [
   { path: 'carwashservices/:id', component: CarwashserviceComponent, canActivate: [AuthGuard]},
   { path: 'booking', component: BookingComponent, canActivate: [AuthGuard] },
   { path: 'servicerequest', component: ServiceRequestComponent},
+  { path: 'servicerequest/:id', component: ServiceRequestComponent},
+  { path: 'servicerequestdesc', component: ServiceRequestDescriptionComponent},
+  { path: 'servicerequestdesc/:id', component: ServiceRequestDescriptionComponent, canActivate: [AuthGuard]},
+  { path: 'servicerequestdesc/:user', component: ServiceRequestDescriptionComponent, canActivate: [AuthGuard]},
   { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: 'invoice', component: InvoiceComponent, canActivate: [AuthGuard] },
+  { path: 'invoice/:id', component: InvoiceComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'success', component: SuccessfullComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent },

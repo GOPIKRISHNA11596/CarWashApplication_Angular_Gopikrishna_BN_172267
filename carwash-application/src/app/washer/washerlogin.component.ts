@@ -50,12 +50,15 @@ export class WasherloginComponent implements OnInit {
           this.check = true;
           localStorage.setItem('iswasherlogin', 'true');
           localStorage.setItem('isuserlogin', 'false');
+          localStorage.setItem('isadminlogin', 'false');
           localStorage.setItem('type', 'ForWasher');
           localStorage.setItem('washername', this.washer.username);
 
           console.log('Washer Name : ' + localStorage.getItem('washername'));
           console.log('Washer Login Status : ' + localStorage.getItem('iswasherlogin'));
           console.log('User Login Status : ' + localStorage.getItem('isuserlogin'));
+          console.log('Is Admin login : ' + localStorage.getItem('isadminlogin'));
+
 
           alert('Your Washer Login successfull');
           this.router.navigate(['/home']);

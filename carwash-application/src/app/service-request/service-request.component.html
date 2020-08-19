@@ -1,37 +1,33 @@
+<div class="container-fluid">
+  <h3 style="text-align: center;">{{pageTitle}}</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Username</th>
+        <th>Car</th>
+        <th>Package Name</th>
+        <th>Location, Date & Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let request of serviceRequests'>
+        <td>{{request.bookingID}}</td>
+        <td><a [routerLink]="['/servicerequestdesc', request.username]">{{request.username}}</a></td>
+        <td> <a [routerLink]="['/servicerequestdesc', request.carID]">{{request.car}}</a> </td>
+        <td>{{request.packageName}}</td>
+        <td>
+          <p id="add"><i class="fa fa-map-marker" aria-hidden="true"></i>#{{request.doorNumber}}, {{request.street}},</p>
+          <p id="add">{{request.city}}, {{request.district}},</p>
+          <p id="add">{{request.state}} - {{request.pincode}}</p>
+          <p id="add"><b>Date</b> : {{request.date}}</p>
+          <p id="add"><b>Time</b> : {{request.time}}</p>
+        </td>
+        <td><button class="btn btn-primary" type="submit" [routerLink]="['/invoice', request.carID]">Accept</button></td>
+      </tr>
+    </tbody>
+  </table>
 
-<div class='card'>
-  <div class='card-header' class="text-center">
-    <h3>{{pageTitle}}</h3>
-  </div>
-<!--
-  <div class='card-body'>
 
-    <div class='table-responsive'
-         *ngIf='serviceRequests && serviceRequests.length'>
-         <table class='table'>
-          <thead>
-            <tr>
-              <th>Booking ID</th>
-              <th>Username</th>
-              <th>Car</th>
-              <th>Car Servce</th>
-              <th>Location</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor='let request of serviceRequests'>
-              <td>{{request.bookingID}}</td>
-              <td>{{request.username}}</td>
-              <td>
-                <a [routerLink]="['/books', book.ID]">{{request.car}}</a>
-              </td>
-              <td>{{request.car}}</td>
-              <td>{{request.carservice}}</td>
-              <td>{{request.location}}</td>
-            </tr>
-          </tbody>
-        </table>
 
-    </div>
-  </div>
-</div> -->
+</div>

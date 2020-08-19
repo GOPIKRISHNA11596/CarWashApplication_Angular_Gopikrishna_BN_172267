@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4" id="loginFrom">
+      <h3 style="text-align: center;">Admin Login</h3>
+      <br>
+      <div style="text-align: center;">
+        <i class="fa fa-user-circle-o fa-5x" aria-hidden="true"></i>
+      <br>
+      <br>
+      <div *ngIf="!check">
+        <p class="alert alert-danger">Invalid Username or Password</p>
+      </div>
+      <br>
+      <form [formGroup]="loginForm" > <!-- (ngSubmit)="onSubmit()"> -->
+        <!-- UserName -->
+        <div class="form-group">
+          <input type="text" formControlName="username" placeholder="USERNAME" id="username" class="form-control"  [(ngModel)]="admin.username"
+           required>
+        </div>
+        <!-- Validating Username -->
+        <div *ngFor="let validation of validationMessages.username">
+          <div class="error-message"
+            *ngIf="loginForm.controls['username'].hasError(validation.type) && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+              class="alert alert-danger">
+            {{validation.message}}
+          </div>
+        </div>
+        <!-- Password  -->
+        <div class="form-group">
+          <input type="password" formControlName="password" placeholder="PASSWORD" class="form-control" id="password"
+              [(ngModel)]="admin.password" required>
+        </div>
+        <!-- Validating Username -->
+        <div *ngFor="let validation of validationMessages.password">
+          <div class="error-message"
+            *ngIf="loginForm.controls['password'].hasError(validation.type) && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+            class="alert alert-danger">
+            {{validation.message}}
+          </div>
+        </div>
+        <br>
+        <div style="text-align: center;">
+          <button type="submit" class="btn btn-primary"  (click)="onLogin()">Login</button>
+        </div>
+        <br>
+      </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+  </div>
+</div>

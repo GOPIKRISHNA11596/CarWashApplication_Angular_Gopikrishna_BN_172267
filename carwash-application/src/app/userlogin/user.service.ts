@@ -12,13 +12,13 @@ export class UserService {
   baseUri: string = 'http://localhost:3000';
   user: User[];
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
 
     let url = `${this.baseUri}/users`;
     return this.http.get<User[]>(url).pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
+        tap(data => data),
         catchError(this.handleError)
       );
   }
@@ -35,7 +35,7 @@ export class UserService {
     return this.http.post<User[]>(url, user);
   }
 
- authentication(user : User): Observable<Object> {
+ authentication(user: User): Observable<Object> {
   let url = `${this.baseUri}/users/authenticate`;
   return this.http.post<Object>(url, user);
 }

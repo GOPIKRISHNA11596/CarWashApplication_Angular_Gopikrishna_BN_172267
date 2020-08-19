@@ -27,10 +27,10 @@ export class ServiceSelectedService {
       );
   }
 
-  getServiceSelected(id: string): Observable<ServiceSelected | undefined> {
+  getServiceSelected(username: string): Observable<ServiceSelected | undefined> {
     return this.getServicesSelected()
       .pipe(
-        map((service: ServiceSelected[]) => service.find(p => p.username === id))
+        map((service: ServiceSelected[]) => service.find(p => p.username === username))
       );
   }
 

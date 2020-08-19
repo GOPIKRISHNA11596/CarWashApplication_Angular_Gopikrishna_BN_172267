@@ -2,38 +2,35 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { Booking } from './booking';
+import { ServiceRequest } from './service-request';
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class BookingService {
+export class ServiceRequestService {
 
   baseUri: string = 'http://localhost:3000';
-  booking: Booking[];
+  serviceRequest: ServiceRequest[];
 
   constructor(private http: HttpClient) { }
 
-  getSchedules(): Observable<Booking[]> {
-    const url = `${this.baseUri}/booking`;
-    return this.http.get<Booking[]>(url).pipe(
-        // tap(data => console.log('All: ' + JSON.stringify(data))),
-        tap(),
+  addServiceRequest(serviceRequest: ServiceRequest): Observable<ServiceRequest[]> {
+    const url = `${this.baseUri}/servicerequests/add`;
+    return this.http.post<ServiceRequest[]>(url, serviceRequest);
+  }
+
+  getServiceRequest(): Observable<ServiceRequest[]> {
+    const url = `${this.baseUri}/servicerequests`;
+    return this.http.get<ServiceRequest[]>(url).pipe(
+        tap(data => console.log('All: ' + JSON.stringify(data))),
         catchError(this.handleError)
       );
   }
-
-  getSchedule(id: string): Observable<Booking | undefined> {
-    return this.getSchedules()
+  getServiceRequestById(id: number): Observable<ServiceRequest | undefined> {
+    return this.getServiceRequest()
       .pipe(
-        map((bookings: Booking[]) => bookings.find(p => p.username === id))
+        map((data: ServiceRequest[]) => data.find(p => p.carID === id))
       );
-  }
-
-  addSchedule(booking: Booking[]): Observable<Booking[]> {
-    const url = `${this.baseUri}/booking/add`;
-    return this.http.post<Booking[]>(url, booking);
   }
 
   // tslint:disable-next-line: typedef

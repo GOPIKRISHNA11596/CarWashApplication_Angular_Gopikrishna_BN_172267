@@ -33,6 +33,12 @@
       <li class="nav-item active" *ngIf="readWasher()=='true'">
         <a class="nav-link" [routerLink]="['/servicerequest']"><b>Service Request</b></a>
       </li>
+      <li class="nav-item active" *ngIf="readAdmin()=='true'">
+        <a class="nav-link" [routerLink]="['/userdetails']"><b>Cutsomer Details</b></a>
+      </li>
+      <li class="nav-item active" *ngIf="readAdmin()=='true'">
+        <a class="nav-link" [routerLink]="['/washerdetails']"><b>Washer Details</b></a>
+      </li>
     </ul>
   </div>
   <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
@@ -43,7 +49,7 @@
         </a>
         <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
             role="menu" aria-labelledby="button-animated">
-          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/']"><i class="fa fa-black-tie" aria-hidden="true"></i>&nbsp;Admin Login</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['/adminlogin']"><i class="fa fa-black-tie" aria-hidden="true"></i>&nbsp;Admin Login</a></li>
           <li role="menuitem"><a class="dropdown-item" [routerLink]="['/washerlogin']"><i class="fa fa-group" aria-hidden="true"></i>&nbsp;Washer Login</a></li>
           <li role="menuitem"><a class="dropdown-item" [routerLink]="['/userlogin']"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;Customer Login</a></li>
         </ul>

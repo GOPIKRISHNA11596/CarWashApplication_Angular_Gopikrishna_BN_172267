@@ -1,9 +1,11 @@
-import { User } from './../userlogin/user';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/Router';
 import { UserService } from '../userlogin/user.service';
 import { WasherService } from '../washer/washer.service';
+import { AdminService } from '../admin/admin.service';
 import { Washer } from '../washer/washer';
+import { User } from './../userlogin/user';
+import { Admin } from './../admin/admin';
 
 @Component({
   selector: 'app-profile',
@@ -14,25 +16,38 @@ import { Washer } from '../washer/washer';
 export class ProfileComponent implements OnInit {
   user: User | undefined;
   washer: Washer | undefined;
+  admin: Admin | undefined;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private userService: UserService,
-              private washerService: WasherService) { }
+              private washerService: WasherService,
+              private adminService: AdminService) { }
 
   ngOnInit(): void {
     const uname =  localStorage.getItem('username');
     const wname =  localStorage.getItem('washername');
+    const aname =  localStorage.getItem('adminname');
+
     const userlogin = localStorage.getItem('isuserlogin');
     const washerlogin = localStorage.getItem('iswasherlogin');
+    const adminlogin = localStorage.getItem('isadminlogin');
+
     console.log('IsWasherLogin : ' + washerlogin);
     console.log('IsUserLogin : ' + userlogin);
+    console.log('IsAdminLogin : ' + adminlogin);
+
     console.log('Username : ' + uname);
     console.log('Washername : ' + wname);
+    console.log('Adminname : ' + aname);
+
     if (userlogin){
       this.getUser(uname);
     }
     if (washerlogin){
       this.getWasher(wname);
+    }
+    if (adminlogin){
+      this.getAdmin(aname);
     }
   }
 
@@ -44,6 +59,11 @@ export class ProfileComponent implements OnInit {
   // tslint:disable-next-line: typedef
   readUser(){
     return localStorage.getItem('isuserlogin');
+  }
+
+  // tslint:disable-next-line: typedef
+  readAdmin(){
+    return localStorage.getItem('isadminlogin');
   }
 
   // tslint:disable-next-line: typedef
@@ -60,4 +80,10 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line: typedef
+  getAdmin(aname: string){
+    this.adminService.getAdmin(aname).subscribe((data) => {
+      this.admin = data;
+    });
+  }
 }

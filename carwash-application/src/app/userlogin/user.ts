@@ -1,11 +1,11 @@
 export class User{
 
-  firstName : string;
+  firstName: string;
   lastName: string;
-  email : string;
+  email: string;
   contactNo: number;
   username: string;
-  password : string;
+  password: string;
   confirmPassword: string;
 }
 

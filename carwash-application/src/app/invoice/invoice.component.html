@@ -1,0 +1,53 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+
+    <div class="col-md-6" *ngIf="true" id="pdfTable" #pdfTable>
+      <h4 style="text-align: center;">{{pageTitle}}</h4>
+      <table class='table'  id="border">
+        <tbody>
+          <tr>
+            <th>UserName</th>
+            <td>{{serviceRequest.username}}</td>
+          </tr>
+          <tr>
+            <th>Booking ID</th>
+            <td>{{serviceRequest.bookingID}}</td>
+          </tr>
+          <tr>
+            <th>Car</th>
+            <td>{{serviceRequest.car}}</td>
+          </tr>
+          <tr>
+            <th>Package Name</th>
+            <td>{{serviceRequest.packageName}}</td>
+          </tr>
+          <tr>
+            <th>Address</th>
+            <td>
+              <p id="add"><i class="fa fa-map-marker" aria-hidden="true"></i>#{{serviceRequest.doorNumber}}, {{serviceRequest.street}},</p>
+              <p id="add">{{serviceRequest.city}}, {{serviceRequest.district}},</p>
+              <p id="add">{{serviceRequest.state}} - {{serviceRequest.pincode}}</p>
+            </td>
+          </tr>
+          <tr>
+            <th>TotalAmount</th>
+            <td><i class="fa fa-rupee"></i>{{serviceRequest.amount}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="wrapper">
+        <button class="btn btn-primary" type="submit" (click)="downloadAsPDF()">Export To PDF</button>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+    </div>
+  </div>
+</div>
+

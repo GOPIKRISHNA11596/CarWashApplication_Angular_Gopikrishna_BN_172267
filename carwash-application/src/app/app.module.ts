@@ -24,6 +24,11 @@ import { CarwashserviceComponent } from './carwashservice/carwashservice.compone
 import { PaymentComponent } from './payment/payment.component';
 import { CartComponent } from './cart/cart.component';
 import { SuccessfullComponent } from './successfull/successfull.component';
+import { ServiceRequestAcceptedComponent } from './service-request-accepted/service-request-accepted.component';
+import { InvoiceComponent } from './invoice/invoice.component';
+import { AdminloginComponent } from './admin/adminlogin.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { WasherDetailsComponent } from './washer-details/washer-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +47,12 @@ import { SuccessfullComponent } from './successfull/successfull.component';
     CarwashserviceComponent,
     PaymentComponent,
     CartComponent,
-    SuccessfullComponent
+    SuccessfullComponent,
+    ServiceRequestAcceptedComponent,
+    InvoiceComponent,
+    AdminloginComponent,
+    UserDetailsComponent,
+    WasherDetailsComponent
   ],
   imports: [
     BrowserModule,

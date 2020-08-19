@@ -17,7 +17,8 @@ export class PaymentService {
   getPayments(): Observable<Payment[]> {
     const url = `${this.baseUri}/payments`;
     return this.http.get<Payment[]>(url).pipe(
-        tap(data => console.log('All: ' + JSON.stringify(data))),
+        // tap(data => console.log('All: ' + JSON.stringify(data))),
+        tap(),
         catchError(this.handleError)
       );
   }

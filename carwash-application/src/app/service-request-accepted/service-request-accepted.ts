@@ -1,7 +1,6 @@
-export class ServiceRequest{
+export class ServiceRequestAccepted{
 
   username: string;
-  amount: number;
   bookingID: number;
   car: string;
   carID: number;

@@ -1,40 +1,63 @@
-<p>service-request-description works!</p>
-<!-- <div class='card' *ngIf='book'>
-  <div class='card-header'>
-    {{pageTitle + ': ' + book.BookName}}
-  </div>
-
-  <div class='card-body'>
-    <div class='row'>
-      <div class='col-md-8'>
-        <div class='row'>
-          <div class='col-md-4'>Booking ID</div>
-          <div class='col-md-8'>{{book.BookName}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Username</div>
-          <div class='col-md-8'>{{book.AuthorName}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Contact No :</div>
-          <div class='col-md-8'>{{book.Category}}</div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>Car Details</div>
-          <div class='col-md-8'>{{book.Price}}</div>
-        </div>
-      </div>
-
-      <div class='col-md-4'>
-        <img class='center-block img-responsive' [src]='book.imageUrl' [title]='book.BookName'
-          [style.width.px]='imageWidth' [style.margin.px]='imageMargin'>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6" id="border" *ngIf="check=='true'">
+      <h4 style="text-align: center;">Customer Details</h4>
+      <table class='table'>
+        <tbody>
+          <tr>
+            <th>Username</th>
+            <td>{{user.username}}</td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td>{{user.firstName}}</td>
+          </tr>
+          <tr>
+            <th>Last Name</th>
+            <td>{{user.lastName}}</td>
+          </tr>
+          <tr>
+            <th>Email</th>
+            <td>{{user.email}}</td>
+          </tr>
+          <tr>
+            <th>Contact</th>
+            <td>{{user.contactNo}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6" id="border" *ngIf="check=='false'">
+      <h4 style="text-align: center;">Car Details</h4>
+      <table class='table'>
+        <tbody>
+          <tr>
+            <th>Car ID</th>
+            <td>{{car.carID}}</td>
+          </tr>
+          <tr>
+            <th>Car Brand</th>
+            <td>{{car.carBrand}}</td>
+          </tr>
+          <tr>
+            <th>Car Type</th>
+            <td>{{car.carType}}</td>
+          </tr>
+          <tr>
+            <th>Year</th>
+            <td>{{car.year}}</td>
+          </tr>
+          <tr>
+            <th>color</th>
+            <td>{{car.color}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3">
     </div>
   </div>
+</div>
 
-  <div class='card-footer'>
-    <button class='btn btn-outline-secondary' (click)='onBack()' style='width:80px'>
-      <i class='fa fa-chevron-left'></i> Back
-    </button>
-  </div>
-</div> -->
