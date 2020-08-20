@@ -1,0 +1,12 @@
+.modal-title {
+  margin: 0 auto;
+}
+.modal-body {
+  align-self: center;
+}
+
+#border{
+  border: 3px solid black;
+  padding: 40px 25px;
+  border-radius: 15px;
+}

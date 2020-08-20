@@ -35,6 +35,158 @@
                 <td>{{user.contactNo}}</td>
               </tr>
             </tbody>
+            <tr>
+              <th></th>
+              <td>
+                <button data-toggle="modal"  data-target="#trending1" class="btn btn-primary" type="submit" (click)="onUserEditButtonPressed(user.username)">Edit</button>
+              </td>
+            </tr>
+            <div class="modal fade" id="trending1" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5  class="modal-title">Edit Your Details</h5>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="editForm" [hidden]="submitted">
+                    <table>
+                      <tbody>
+                    <!-- First Name -->
+                        <div class="form-group">
+                        <tr>
+                          <th>First Name</th>
+                          <th>
+                            <input type="text" formControlName="firstName" placeholder="First Name" id="firstName"
+                             class="form-control"  value="{{userget.firstName}}" required>
+                          </th>
+                        </tr>
+                        </div>
+                    <!-- First Name Validation  -->
+                        <div *ngFor="let validation of account_validation_messages.firstName">
+                          <div class="error-message" *ngIf="editForm.controls['firstName'].hasError(validation.type) && (editForm.controls['firstName'].dirty || editForm.controls['firstName'].touched)"
+                               class="alert alert-danger">
+                                {{validation.message}}
+                          </div>
+                        </div>
+
+                    <!-- Last Name -->
+                        <div class="form-group">
+                        <tr>
+                          <th>Last Name</th>
+                          <td>
+                            <input type="text" formControlName="lastName" id="lastName" placeholder="Last Name" id="lastName"
+                              class="form-control" value="{{userget.lastName}}" required>
+                          </td>
+                        </tr>
+                        </div>
+                    <!-- Last Name Validation  -->
+                        <div *ngFor="let validation of account_validation_messages.lastName">
+                          <div class="error-message" *ngIf="editForm.controls['lastName'].hasError(validation.type) && (editForm.controls['lastName'].dirty || editForm.controls['lastName'].touched)"
+                               class="alert alert-danger">
+                               {{validation.message}}
+                          </div>
+                        </div>
+
+                    <!-- User Name  -->
+                        <div class="form-group">
+                        <tr>
+                          <th>Username</th>
+                          <td>
+                            <input type="text" formControlName="username" placeholder="Username" id="username" class="form-control"
+                              value="{{userget.username}}" required>
+                          </td>
+                        </tr>
+                        </div>
+                    <!--User Name Validation -->
+                        <div *ngFor="let validation of account_validation_messages.username">
+                          <div class="error-message" *ngIf="editForm.controls['username'].hasError(validation.type) && (editForm.controls['username'].dirty || editForm.controls['username'].touched)"
+                               class="alert alert-danger">
+                                {{validation.message}}
+                          </div>
+                        </div>
+
+                    <!-- Contact Number  -->
+                        <div class="form-group">
+                        <tr>
+                          <th>Contact No.</th>
+                          <td>
+                            <input type="text" formControlName="contactNo" placeholder="Contact No." id="contactNo" class="form-control"
+                            value="{{userget.contactNo}}" required>
+                          </td>
+                        </tr>
+                        </div>
+                    <!-- Contact Number Validation -->
+                        <div *ngFor="let validation of account_validation_messages.contactNo">
+                          <div class="error-message" *ngIf="editForm.controls['contactNo'].hasError(validation.type) && (editForm.controls['contactNo'].dirty || editForm.controls['contactNo'].touched)"
+                               class="alert alert-danger">
+                                {{validation.message}}
+                          </div>
+                        </div>
+
+                    <!-- Email -->
+                        <div class="form-group">
+                        <tr>
+                          <th>Email</th>
+                          <td>
+                            <input type="text" formControlName="email" placeholder="Email" class="form-control" id="email"
+                              value="{{userget.email}}" required>
+                          </td>
+                        </tr>
+                        </div>
+                    <!-- Email Validation -->
+                        <div *ngFor="let validation of account_validation_messages.email">
+                          <div class="error-message" *ngIf="editForm.controls['email'].hasError(validation.type) && (editForm.controls['email'].dirty || editForm.controls['email'].touched)"
+                               class="alert alert-danger">
+                                {{validation.message}}
+                          </div>
+                        </div>
+
+                    <!-- Password  -->
+                        <div class="form-group">
+                        <tr>
+                          <th>Password</th>
+                          <td>
+                            <input type="password" formControlName="password" placeholder="Password" class="form-control" id="password"
+                            required>
+                          </td>
+                        </tr>
+                        </div>
+                      <!-- Password Valiadtion -->
+                        <div *ngFor="let validation of account_validation_messages.password">
+                          <div class="error-message" *ngIf="editForm.controls['password'].hasError(validation.type) && (editForm.controls['password'].dirty || editForm.controls['password'].touched)"
+                               class="alert alert-danger">
+                                {{validation.message}}
+                          </div>
+                        </div>
+
+                    <!-- Confirm Password  -->
+                        <div class="form-group">
+                          <tr>
+                            <th>Confirm Password</th>
+                            <td>
+                              <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword"
+                                 placeholder="Confirm Password" ngValidateEqual="password" required>
+                            </td>
+                          </tr>
+                          </div>
+                    <!-- Confirm Password Valiadtion -->
+                        <div *ngFor="let validation of account_validation_messages.confirmPassword">
+                          <div class="error-message" *ngIf="editForm.controls['confirmPassword'].hasError(validation.type) && (editForm.controls['confirmPassword'].dirty || editForm.controls['confirmPassword'].touched)"
+                               class="alert alert-danger">
+                                {{validation.message}}
+                          </div>
+                        </div>
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="updateUser(userget.username)">Save</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+                </div>
+              </div>
+              </div>
+            </div>
           </table>
 
           <!-- Washer Profile -->
@@ -56,6 +208,156 @@
                 <th>Contact No</th>
                 <td>{{washer.contactNo}}</td>
               </tr>
+                <th></th>
+                <td>
+                <button data-toggle="modal"  data-target="#trending1" class="btn btn-primary" type="submit" (click)="onWasherEditButtonPressed(washer.username)">Edit</button>
+                </td>
+              <div class="modal fade" id="trending1" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5  class="modal-title">Edit Your Details</h5>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="editWasherForm" [hidden]="submitted">
+                      <table>
+                        <tbody>
+                      <!-- First Name -->
+                          <div class="form-group">
+                          <tr>
+                            <th>Name</th>
+                            <th>
+                              <input type="text" formControlName="Name" placeholder="{{washerget.Name}}" id="Name"
+                              class="form-control" value="{{washerget.Name}}" required>
+                            </th>
+                          </tr>
+                          </div>
+                      <!-- Name Validation  -->
+                          <div *ngFor="let validation of account_validation_messages_washer.Name">
+                            <div class="error-message" *ngIf="editWasherForm.controls['Name'].hasError(validation.type) && (editWasherForm.controls['Name'].dirty || editWasherForm.controls['Name'].touched)"
+                                class="alert alert-danger">
+                                  {{validation.message}}
+                            </div>
+                          </div>
+
+                      <!-- Company Name -->
+                          <div class="form-group">
+                          <tr>
+                            <th>Company Name</th>
+                            <td>
+                              <input type="text" formControlName="company" id="company" placeholder="{{washerget.company}}" id="company"
+                              class="form-control" value="{{washerget.company}}" required>
+                            </td>
+                          </tr>
+                          </div>
+                      <!-- Company Name Validation  -->
+                          <div *ngFor="let validation of account_validation_messages_washer.company">
+                            <div class="error-message" *ngIf="editWasherForm.controls['company'].hasError(validation.type) && (editWasherForm.controls['company'].dirty || editWasherForm.controls['company'].touched)"
+                                class="alert alert-danger">
+                                {{validation.message}}
+                            </div>
+                          </div>
+
+                      <!-- User Name  -->
+                          <div class="form-group">
+                          <tr>
+                            <th>Username</th>
+                            <td>
+                              <input type="text" formControlName="username" placeholder="username" id="username" class="form-control"
+                              value="{{washerget.username}}" required>
+                            </td>
+                          </tr>
+                          </div>
+                      <!--User Name Validation -->
+                          <div *ngFor="let validation of account_validation_messages_washer.username">
+                            <div class="error-message" *ngIf="editWasherForm.controls['username'].hasError(validation.type) && (editWasherForm.controls['username'].dirty || editWasherForm.controls['username'].touched)"
+                                 class="alert alert-danger">
+                                  {{validation.message}}
+                            </div>
+                          </div>
+
+                      <!-- Contact Number  -->
+                          <div class="form-group">
+                          <tr>
+                            <th>Contact No.</th>
+                            <td>
+                              <input type="text" formControlName="contactNo" placeholder="{{washerget.contactNo}}" id="contactNo" class="form-control"
+                              value="{{washerget.contactNo}}" required>
+                            </td>
+                          </tr>
+                          </div>
+                      <!-- Contact Number Validation -->
+                          <div *ngFor="let validation of account_validation_messages_washer.contactNo">
+                            <div class="error-message" *ngIf="editWasherForm.controls['contactNo'].hasError(validation.type) && (editWasherForm.controls['contactNo'].dirty || editWasherForm.controls['contactNo'].touched)"
+                                 class="alert alert-danger">
+                                  {{validation.message}}
+                            </div>
+                          </div>
+
+                      <!-- Email -->
+                          <div class="form-group">
+                          <tr>
+                            <th>Email</th>
+                            <td>
+                              <input type="text" formControlName="email" placeholder="{{washerget.email}}" class="form-control" id="email"
+                                value="{{washerget.email}}" required>
+                            </td>
+                          </tr>
+                          </div>
+                      <!-- Email Validation -->
+                          <div *ngFor="let validation of account_validation_messages_washer.email">
+                            <div class="error-message" *ngIf="editWasherForm.controls['email'].hasError(validation.type) && (editWasherForm.controls['email'].dirty || editWasherForm.controls['email'].touched)"
+                                 class="alert alert-danger">
+                                  {{validation.message}}
+                            </div>
+                          </div>
+
+                      <!-- Password  -->
+                          <div class="form-group">
+                          <tr>
+                            <th>Password</th>
+                            <td>
+                              <input type="password" formControlName="password" placeholder="Password" class="form-control" id="password"
+                                required>
+                            </td>
+                          </tr>
+                          </div>
+                        <!-- Password Valiadtion -->
+                          <div *ngFor="let validation of account_validation_messages_washer.password">
+                            <div class="error-message" *ngIf="editWasherForm.controls['password'].hasError(validation.type) && (editWasherForm.controls['password'].dirty || editWasherForm.controls['password'].touched)"
+                                 class="alert alert-danger">
+                                  {{validation.message}}
+                            </div>
+                          </div>
+
+                      <!-- Confirm Password  -->
+                          <div class="form-group">
+                            <tr>
+                              <th>Confirm Password</th>
+                              <td>
+                                <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword"
+                                   placeholder="Confirm Password" ngValidateEqual="password" required>
+                              </td>
+                            </tr>
+                            </div>
+                      <!-- Confirm Password Valiadtion -->
+                          <div *ngFor="let validation of account_validation_messages_washer.confirmPassword">
+                            <div class="error-message" *ngIf="editWasherForm.controls['confirmPassword'].hasError(validation.type) && (editWasherForm.controls['confirmPassword'].dirty || editWasherForm.controls['confirmPassword'].touched)"
+                                 class="alert alert-danger">
+                                  {{validation.message}}
+                            </div>
+                          </div>
+                        </tbody>
+                      </table>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="updateWasher(washerget.username)">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+                  </div>
+                </div>
+                </div>
+              </div>
             </tbody>
           </table>
 

@@ -29,6 +29,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { AdminloginComponent } from './admin/adminlogin.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { WasherDetailsComponent } from './washer-details/washer-details.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { WasherDetailsComponent } from './washer-details/washer-details.componen
     InvoiceComponent,
     AdminloginComponent,
     UserDetailsComponent,
-    WasherDetailsComponent
+    WasherDetailsComponent,
+    CarDetailsComponent
   ],
   imports: [
     BrowserModule,

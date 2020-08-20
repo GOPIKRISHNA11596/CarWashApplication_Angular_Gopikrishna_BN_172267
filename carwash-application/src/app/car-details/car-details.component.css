@@ -1,0 +1,18 @@
+th,tr{
+  text-align: center;
+}
+#border{
+  border: 2px solid black;
+  padding: 20px 20px;
+}
+#borderline{
+    text-align: center;
+    border-bottom : solid 2px blue;
+}
+.modal-title {
+  margin: 0 auto;
+}
+.modal-body {
+  align-self: center;
+}
+

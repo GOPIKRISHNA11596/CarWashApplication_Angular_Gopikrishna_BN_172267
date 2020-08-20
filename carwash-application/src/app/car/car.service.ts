@@ -45,6 +45,12 @@ export class CarService {
     return this.http.post<Car[]>(url, car);
  }
 
+ editCar(car: Car, carId: number): Observable<Car>{
+  console.log(carId);
+  const url = `${this.baseUri}/cars/${carId}`;
+  return this.http.put<Car>(url, car);
+}
+
   // tslint:disable-next-line: typedef
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';

@@ -21,6 +21,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { AdminloginComponent} from './admin/adminlogin.component';
 import { UserDetailsComponent} from './user-details/user-details.component';
 import { WasherDetailsComponent} from './washer-details/washer-details.component';
+import { CarDetailsComponent } from './car-details/car-details.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,8 @@ const routes: Routes = [
   { path: 'washerdetails', component: WasherDetailsComponent },
   { path: 'profile' , component: ProfileComponent , canActivate: [AuthGuard] },
   { path: 'car', component: CarComponent, canActivate: [AuthGuard] },
+  { path: 'cardetails', component: CarDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'cardetails/:id', component: CarDetailsComponent, canActivate: [AuthGuard] },
   { path: 'carservices', component: CarServiceComponent},
   { path: 'carwashservices', component: CarwashserviceComponent, canActivate: [AuthGuard]},
   { path: 'carwashservices/:id', component: CarwashserviceComponent, canActivate: [AuthGuard]},

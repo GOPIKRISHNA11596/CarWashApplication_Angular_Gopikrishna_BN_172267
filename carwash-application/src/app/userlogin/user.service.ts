@@ -9,13 +9,13 @@ import { User } from './user';
 })
 export class UserService {
 
-  baseUri: string = 'http://localhost:3000';
-  user: User[];
+  baseUri = 'http://localhost:3000';
+  // user: User[];
+  user: User = new User();
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-
     let url = `${this.baseUri}/users`;
     return this.http.get<User[]>(url).pipe(
         tap(data => data),
@@ -30,17 +30,29 @@ export class UserService {
       );
   }
 
-  addUser(user : User[]): Observable<User[]> {
-    let url = `${this.baseUri}/users/register`;
+  addUser(user: User[]): Observable<User[]> {
+    const url = `${this.baseUri}/users/register`;
     return this.http.post<User[]>(url, user);
   }
 
- authentication(user: User): Observable<Object> {
-  let url = `${this.baseUri}/users/authenticate`;
+  deleteUser(id: string): Observable<User> {
+    console.log(id);
+    const url = `${this.baseUri}/users/${id}`;
+    return this.http.delete<User>(url);
+  }
+
+  editUser(user: User, uname: string): Observable<User>{
+    console.log(uname);
+    const url = `${this.baseUri}/users/${uname}`;
+    return this.http.put<User>(url, user);
+  }
+
+  authentication(user: User): Observable<Object> {
+  const url = `${this.baseUri}/users/authenticate`;
   return this.http.post<Object>(url, user);
-}
+  }
 
-
+  // tslint:disable-next-line: typedef
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

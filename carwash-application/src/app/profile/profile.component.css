@@ -4,3 +4,13 @@
   border-radius: 15px;
 }
 
+.modal-title {
+  margin: 0 auto;
+}
+.modal-body {
+  align-self: center;
+}
+
+.btn{
+  float: right;
+}

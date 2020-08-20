@@ -3,10 +3,101 @@
     <h2 style="color: white;"> CAR SERVICES</h2>
   </div>
 </div>
+<br>
+<div class="row" *ngIf="readAdmin()=='true'">
+  <div class="col-md-12">
+    <td><button data-toggle="modal"  data-target="#trending1" class="btn btn-primary" type="submit" >Add New Package</button></td>
+  </div>
+  <div class="modal fade" id="trending1" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5  class="modal-title">Add New Package</h5>
+      </div>
+      <div class="modal-body">
+        <table>
+          <tbody>
+            <tr>
+              <th>Package Name</th>
+              <td>
+                <input   type="text"  placeholder="Package Name" id="packageName"
+                class="form-control" [(ngModel)]="carService.packageName" required>
+              </td>
+            </tr>
+            <br>
+            <tr>
+              <th>Description</th>
+              <td>
+                <tbody>
+                  <tr>
+                    <td>Service 1</td>
+                    <td>
+                      <input type="text"  placeholder="Service 1" id="service1"
+                       name="service1" [(ngModel)]="carService.service1"  required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Service 2</td>
+                    <td>
+                      <input type="text" placeholder="Service 2" id="service2"
+                       [(ngModel)]="carService.service2" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Service 3</td>
+                    <td>
+                      <input type="text"  placeholder="Service 3" id="service3"
+                       [(ngModel)]="carService.service3" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Service 4</td>
+                    <td>
+                      <input type="text"  placeholder="Service 4" id="service4"
+                      [(ngModel)]="carService.service4" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Service 5</td>
+                    <td>
+                      <input type="text"  placeholder="Service 5" id="service5"
+                        [(ngModel)]="carService.service5" required>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Service 6</td>
+                    <td>
+                      <input type="text"  placeholder="Service 6" id="service6"
+                      [(ngModel)]="carService.service6" required>
+                    </td>
+                  </tr>
+                </tbody>
+              </td>
+            </tr>
+            <br>
+            <tr>
+              <th>Amount &nbsp;	<i class="fa fa-inr" aria-hidden="true"></i></th>
+              <td>
+                <input type="text"  placeholder="Amount" id="packageAmount"
+                class="form-control" [(ngModel)]="carService.packageAmount" required>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onAddService()">Save</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
 <hr>
 <table class='table'>
   <thead>
     <tr>
+      <th *ngIf="readAdmin()=='true'">Package ID</th>
       <th>Package Name</th>
       <th>Description</th>
       <th>Amount(Rs.)</th>
@@ -15,20 +106,109 @@
   </thead>
   <tbody>
     <tr *ngFor='let service of carServices'>
+      <td *ngIf="readAdmin()=='true'">{{service.packageID}}</td>
       <td>{{service.packageName}}</td>
       <td>
         <ul>
-          <li>{{service.packageDescrpion.service1}}</li>
-          <li>{{service.packageDescrpion.service2}}</li>
-          <li>{{service.packageDescrpion.service3}}</li>
-          <li>{{service.packageDescrpion.service4}}</li>
-          <li>{{service.packageDescrpion.service5}}</li>
-          <li>{{service.packageDescrpion.service6}}</li>
+          <li>{{service.service1}}</li>
+          <li>{{service.service2}}</li>
+          <li>{{service.service3}}</li>
+          <li>{{service.service4}}</li>
+          <li>{{service.service5}}</li>
+          <li>{{service.service6}}</li>
         </ul>
       </td>
       <td>{{service.packageAmount}}</td>
-      <td><button type="button" class="btn btn-secondary" [routerLink]="['/carwashservices', service.packageID]" (click)="onSelect()">Select</button></td>
-      <td><button type="button" class="btn btn-secondary" [routerLink]="['/home']" routerLinkActive="router-link-active" >Cancel</button></td>
+      <td><button type="button" class="btn btn-secondary" [routerLink]="['/carwashservices', service.packageID]" (click)="onSelect()" *ngIf="readAdmin()=='false';else forAdmin">Select</button></td>
+      <td><button type="button" class="btn btn-secondary" [routerLink]="['/home']" routerLinkActive="router-link-active" *ngIf="readAdmin()=='false'" >Cancel</button></td>
+      <ng-template #forAdmin>
+        <td><button data-toggle="modal"  data-target="#trending2" type="button" class="btn btn-primary" *ngIf="readAdmin()=='true'" (click)="onEditButonPressed(service.packageID)">Edit</button></td>
+        <td><button type="button" class="btn btn-danger" *ngIf="readAdmin()=='true'" (click)="onDelete(service.packageID)">Delete</button></td>
+        <div class="modal fade" id="trending2" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5  class="modal-title">Add New Package</h5>
+            </div>
+            <div class="modal-body">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Package Name</th>
+                    <td>
+                      <input   type="text"  placeholder="Package Name" id="packageName"
+                      class="form-control" [(ngModel)]="carService.packageName" required>
+                    </td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <th>Description</th>
+                    <td>
+                      <tbody>
+                        <tr>
+                          <td>Service 1</td>
+                          <td>
+                            <input type="text"  placeholder="Service 1" id="service1"
+                             name="service1" [(ngModel)]="carService.service1"  required>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Service 2</td>
+                          <td>
+                            <input type="text" placeholder="Service 2" id="service2"
+                             [(ngModel)]="carService.service2" required>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Service 3</td>
+                          <td>
+                            <input type="text"  placeholder="Service 3" id="service3"
+                             [(ngModel)]="carService.service3" required>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Service 4</td>
+                          <td>
+                            <input type="text"  placeholder="Service 4" id="service4"
+                            [(ngModel)]="carService.service4" required>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Service 5</td>
+                          <td>
+                            <input type="text"  placeholder="Service 5" id="service5"
+                              [(ngModel)]="carService.service5" required>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>Service 6</td>
+                          <td>
+                            <input type="text"  placeholder="Service 6" id="service6"
+                            [(ngModel)]="carService.service6" required>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </td>
+                  </tr>
+                  <br>
+                  <tr>
+                    <th>Amount &nbsp;	<i class="fa fa-inr" aria-hidden="true"></i></th>
+                    <td>
+                      <input type="text"  placeholder="Amount" id="packageAmount"
+                      class="form-control" [(ngModel)]="carService.packageAmount" required>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="updateService(carService.packageID)">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+          </div>
+        </div>
+      </ng-template>
     </tr>
   </tbody>
 </table>

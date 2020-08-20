@@ -35,6 +35,19 @@ export class WasherService {
     return this.http.post<Washer[]>(url, washer);
   }
 
+  editWasher(washer: Washer, uname: string): Observable<Washer>{
+    console.log(uname);
+    const url = `${this.baseUri}/washers/${uname}`;
+    return this.http.put<Washer>(url, washer);
+  }
+
+  deleteWasher(id: string): Observable<Washer> {
+    console.log(id);
+    const url = `${this.baseUri}/washers/${id}`;
+    return this.http.delete<Washer>(url);
+  }
+
+
   authentication(washer : Washer[]): Observable<Object> {
     let url = `${this.baseUri}/washers/authenticate`;
     return this.http.post<Object>(url, washer);

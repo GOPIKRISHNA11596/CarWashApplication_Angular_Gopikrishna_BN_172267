@@ -69,10 +69,10 @@ export class UserregistrationComponent implements OnInit {
                         Validators.pattern('[a-zA-Z0-9_.+-]+@gmail.com+$')]],
         contactNo : ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
                           Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]],
-        username:['', [Validators.required,Validators.maxLength(20),Validators.minLength(3)] ],
-        password :['', [ Validators.required,Validators.maxLength(15),Validators.minLength(8),
+        username: ['', [Validators.required, Validators.maxLength(20), Validators.minLength(3)] ],
+        password : ['', [ Validators.required, Validators.maxLength(15),Validators.minLength(8),
                          Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')] ],
-        confirmPassword:['', [ Validators.required, Validators.maxLength(15),Validators.minLength(8),
+        confirmPassword: ['', [ Validators.required, Validators.maxLength(15),Validators.minLength(8),
                                Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]+$')] ]
       });
   }

@@ -24,8 +24,11 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/home']"><i class="fa fa-home" aria-hidden="true"></i><b>Home</b></a>
       </li>
-      <li class="nav-item active">
+      <li class="nav-item active" *ngIf="readAdmin()=='false'">
         <a class="nav-link" [routerLink]="['/carservices']"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;<b>Car Service</b></a>
+      </li>
+      <li class="nav-item active" *ngIf="readAdmin()=='true'">
+        <a class="nav-link" [routerLink]="['/carwashservices']"><i class="fa fa-car" aria-hidden="true"></i>&nbsp;<b>Car Service</b></a>
       </li>
       <li class="nav-item active" *ngIf="readUser()=='true'">
         <a class="nav-link" [routerLink]="['/car']"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;<b>Schedule Online</b></a>
