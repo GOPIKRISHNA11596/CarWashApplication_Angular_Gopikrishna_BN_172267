@@ -1,0 +1,185 @@
+
+<div class="container-fluid"  *ngIf="readUser() == 'true'">
+  <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <table>
+          <tbody>
+            <tr >
+              <td style="text-align: center;">
+                <h3>Status</h3>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr >
+              <td  class="border" >
+                Booking Successfull
+              </td>
+              &nbsp;
+              &nbsp;
+              <td id="done" *ngIf="readBookingSuccessful()=='true'">
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+                Order Accepted
+              </td>
+              &nbsp;
+              &nbsp;
+              <td >
+                <i class="fa fa-check" style="color: green;" *ngIf="readOrderAccepted()=='true'"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+                Picked Car successful
+              </td>
+              &nbsp;
+              &nbsp;
+              <td *ngIf="readPickCar() == 'true'">
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+                Car service done
+              </td>
+              &nbsp;
+              &nbsp;
+              <td *ngIf="readCarService()=='true'">
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+                Dropped Car successful
+              </td>
+              &nbsp;
+              &nbsp;
+              <td *ngIf="readDropCar() == 'true'">
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+        &nbsp;
+        &nbsp;
+        <div style="text-align: center;">
+          <button class="btn btn-primary" type="submit" [routerLink]="['/rating']" routerLinkActive="router-link-active"  (click)="execute()">OK</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+  </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="readWasher() == 'true'">
+  <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <table>
+          <tbody>
+            <tr >
+              <td>
+                <h3>Status</h3>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr >
+              <td  class="border" >
+                Booking Successfull
+              </td>
+              &nbsp;
+              &nbsp;
+              <td id="done" *ngIf="readBookingSuccessful()=='true'">
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+                Order Accepted
+              </td>
+              &nbsp;
+              &nbsp;
+              <td >
+                <i class="fa fa-check" style="color: green;" *ngIf="readOrderAccepted()=='true'"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+               Are you ready to Pick Car?
+              </td>
+              &nbsp;
+              &nbsp;
+              <td>
+                <button type="button" class="btn btn-primary" onclick="style.display = 'none'" (click)="setPickCar()">Yes</button>
+              </td>
+              &nbsp;
+              &nbsp;
+              <td>
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+                Is car service done?
+              </td>
+              &nbsp;
+              &nbsp;
+              <td>
+                <button type="button" class="btn btn-primary" onclick="style.display = 'none'" (click)="setCarService()">Yes</button>
+              </td>
+              &nbsp;
+              &nbsp;
+              <td>
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+            &nbsp;
+            &nbsp;
+            <tr>
+              <td class="border">
+               Is dropped Car successful ?
+              </td>
+              &nbsp;
+              &nbsp;
+              <td>
+                <button type="button" class="btn btn-primary" onclick="style.display = 'none'" (click)="setDropCar()">Yes</button>
+              </td>
+              &nbsp;
+              &nbsp;
+              <td>
+                <i class="fa fa-check" style="color: green;"></i>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+
+      </div>
+      <div class="col-md-4">
+      </div>
+  </div>
+</div>

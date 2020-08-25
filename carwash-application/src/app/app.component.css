@@ -21,3 +21,11 @@ h3{
 #address{
   color: white;
 }
+
+#hover,#button-animated{
+  opacity: 1;
+}
+
+#hover,#button-animated:hover {
+  opacity: 0.8;
+}

@@ -30,6 +30,9 @@ import { AdminloginComponent } from './admin/adminlogin.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { WasherDetailsComponent } from './washer-details/washer-details.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { StatusComponent } from './status/status.component';
+
 
 @NgModule({
   declarations: [
@@ -54,7 +57,9 @@ import { CarDetailsComponent } from './car-details/car-details.component';
     AdminloginComponent,
     UserDetailsComponent,
     WasherDetailsComponent,
-    CarDetailsComponent
+    CarDetailsComponent,
+    ImageUploadComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

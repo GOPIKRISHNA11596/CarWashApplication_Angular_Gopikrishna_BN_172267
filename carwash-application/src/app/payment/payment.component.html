@@ -46,7 +46,7 @@
             {{validation.message}}
           </div>
         </div>
-        
+
         <div class="row">
           <div class="col-md-4">
 <!-- Expiry Month -->
@@ -112,7 +112,7 @@
 <!-- Amoumt -->
         <div class="form-group" >
           <input type="text" formControlName="amount" class="form-control" placeholder="Total Amount" id="amount"
-            [(ngModel)]="payment.amount" required>
+            [(ngModel)]="payment.amount" value="{{this.readTotalAmount()}}" required>
         </div>
 <!-- Amount Validation -->
         <div *ngFor="let validation of car_validation_messages.amount">

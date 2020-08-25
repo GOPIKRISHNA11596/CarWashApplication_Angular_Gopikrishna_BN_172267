@@ -17,8 +17,8 @@ export class CarService {
   getCars(): Observable<Car[]> {
     const url = `${this.baseUri}/cars`;
     return this.http.get<Car[]>(url).pipe(
-        // tap(data => console.log('All: ' + JSON.stringify(data))),
-        tap(),
+        tap(data => console.log('All: ' + JSON.stringify(data))),
+        // tap(),
         catchError(this.handleError)
       );
   }
@@ -27,6 +27,14 @@ export class CarService {
     return this.getCars()
       .pipe(
         map((cars: Car[]) => cars.find(p => p.username === username))
+      );
+  }
+
+  getCarByCarBrand(carBrand: string): Observable<Car | undefined> {
+    console.log(carBrand);
+    return this.getCars()
+      .pipe(
+        map((cars: Car[]) => cars.find(p => p.carBrand === carBrand))
       );
   }
 

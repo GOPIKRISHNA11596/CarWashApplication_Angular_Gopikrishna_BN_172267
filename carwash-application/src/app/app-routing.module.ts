@@ -22,6 +22,8 @@ import { AdminloginComponent} from './admin/adminlogin.component';
 import { UserDetailsComponent} from './user-details/user-details.component';
 import { WasherDetailsComponent} from './washer-details/washer-details.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { StatusComponent } from './status/status.component';
 
 
 const routes: Routes = [
@@ -51,6 +53,8 @@ const routes: Routes = [
   { path: 'invoice/:id', component: InvoiceComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'success', component: SuccessfullComponent, canActivate: [AuthGuard] },
+  { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
+  { path: 'img', component: ImageUploadComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }
 ];

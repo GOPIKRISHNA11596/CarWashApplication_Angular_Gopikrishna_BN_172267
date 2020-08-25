@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="readWasher()=='true'">
   <h3 style="text-align: center;">{{pageTitle}}</h3>
   <table class='table'>
     <thead>
@@ -14,7 +14,7 @@
       <tr *ngFor='let request of serviceRequests'>
         <td>{{request.bookingID}}</td>
         <td><a [routerLink]="['/servicerequestdesc', request.username]">{{request.username}}</a></td>
-        <td> <a [routerLink]="['/servicerequestdesc', request.carID]">{{request.car}}</a> </td>
+        <td> <a [routerLink]="['/servicerequestdesc', request.carID]">{{request.carBrand}}</a> </td>
         <td>{{request.packageName}}</td>
         <td>
           <p id="add"><i class="fa fa-map-marker" aria-hidden="true"></i>#{{request.doorNumber}}, {{request.street}},</p>
@@ -23,11 +23,209 @@
           <p id="add"><b>Date</b> : {{request.date}}</p>
           <p id="add"><b>Time</b> : {{request.time}}</p>
         </td>
-        <td><button class="btn btn-primary" type="submit" [routerLink]="['/invoice', request.carID]">Accept</button></td>
+        <td>
+            <button  class="btn btn-primary" type="submit" [routerLink]="['/invoice', request.carID]" (click)="orderAccepted(request.username)" onclick="style.display = 'none'">Accept</button>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
 
+<div class="container-fluid" *ngIf="readUser()=='true'">
+  <h3 style="text-align: center;">Your Orders</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Username</th>
+        <th>Car</th>
+        <th>Package Name</th>
+        <th>Location, Date & Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let request of serviceRequests'>
+        <td>{{request.bookingID}}</td>
+        <td><a [routerLink]="['/servicerequestdesc', request.username]">{{request.username}}</a></td>
+        <td> <a [routerLink]="['/servicerequestdesc', request.carID]">{{request.carBrand}}</a> </td>
+        <td>{{request.packageName}}</td>
+        <td>
+          <p id="add"><i class="fa fa-map-marker" aria-hidden="true"></i>#{{request.doorNumber}}, {{request.street}},</p>
+          <p id="add">{{request.city}}, {{request.district}},</p>
+          <p id="add">{{request.state}} - {{request.pincode}}</p>
+          <p id="add"><b>Date</b> : {{request.date}}</p>
+          <p id="add"><b>Time</b> : {{request.time}}</p>
+        </td>
+          <td><button class="btn btn-primary" type="submit" (click)="onDelete(request.bookingID)">Delete</button></td>
+          <td>
+            <button data-toggle="modal"  data-target="#trending1" class="btn btn-primary" type="submit" (click)="onEditButtonPressed(request.bookingID)">Edit</button>
+          </td>
+      </tr>
+      <div class="modal fade" id="trending1" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5  class="modal-title">Edit Booking Details</h5>
+          </div>
+          <div class="modal-body">
+            <table>
+                <tbody>
+              <!-- Booking ID -->
+                  <tr>
+                    <th>Booking ID</th>
+                    <th>
+                      {{serviceRequest.bookingID}}
+                    </th>
+                  </tr>
+              <!-- Username -->
+                  <tr>
+                    <th>Username</th>
+                    <th>
+                      {{serviceRequest.username}}
+                    </th>
+                  </tr>
+              <!-- Car -->
+                  <tr>
+                    <th>Car</th>
+                    <td>
+                      <a  href="" data-toggle="modal"  data-target="#trending2" (click)="onCarEditButtonPressed(serviceRequest.carID)">{{serviceRequest.carBrand}}</a>
+                      <div class="modal fade" id="trending2" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5  class="modal-title">Edit Car Details</h5>
+                            </div>
+                            <div class="modal-body">
+                              <form [formGroup]="carForm" method="post" [hidden]="submitted">
+                                <!-- Car Brand -->
+                                        <div class="form-group">
+                                          <label>Car Brand :</label>
+                                            <input type="text" formControlName="carBrand" placeholder="Car Brand" id="carBrand" class="form-control"
+                                                 [(ngModel)]="car.carBrand" value="{{car.carBrand}}" required>
+                                        </div>
+                                <!-- Car Brand Validation  -->
+                                        <div *ngFor="let validation of car_validation_messages.carBrand">
+                                          <div class="error-message"
+                                            *ngIf="carForm.controls['carBrand'].hasError(validation.type) && (carForm.controls['carBrand'].dirty || carForm.controls['carBrand'].touched)"
+                                            class="alert alert-danger">
+                                            {{validation.message}}
+                                          </div>
+                                        </div>
 
+                                <!-- Car Type -->
+                                        <div class="form-group">
+                                          <label>Car Type :</label>
+                                          <input type="text" formControlName="carType" id="carType" placeholder="Car Type" id="carType"
+                                            class="form-control" [(ngModel)]="car.carType" required>
+                                        </div>
+                                <!-- Car Type Validation  -->
+                                        <div *ngFor="let validation of car_validation_messages.carType">
+                                          <div class="error-message"
+                                            *ngIf="carForm.controls['carType'].hasError(validation.type) && (carForm.controls['carType'].dirty || carForm.controls['carType'].touched)"
+                                            class="alert alert-danger">
+                                            {{validation.message}}
+                                          </div>
+                                        </div>
 
+                                <!-- year -->
+                                        <div class="form-group">
+                                          <label>Year :</label>
+                                          <input type="text" formControlName="year" placeholder="Year" id="year" class="form-control"
+                                                 [(ngModel)]="car.year" required>
+                                        </div>
+                                <!--year Validation -->
+                                        <div *ngFor="let validation of car_validation_messages.year">
+                                          <div class="error-message"
+                                            *ngIf="carForm.controls['year'].hasError(validation.type) && (carForm.controls['year'].dirty || carForm.controls['year'].touched)"
+                                            class="alert alert-danger">
+                                            {{validation.message}}
+                                          </div>
+                                        </div>
+
+                                <!-- Color  -->
+                                        <div class="form-group" >
+                                          <label>Color :</label>
+                                          <input type="text" formControlName="color" placeholder="Color" id="color" class="form-control"
+                                                  [(ngModel)]="car.color" required>
+                                        </div>
+                                <!-- Color Validation -->
+                                        <div *ngFor="let validation of car_validation_messages.color">
+                                          <div class="error-message"
+                                            *ngIf="carForm.controls['color'].hasError(validation.type) && (carForm.controls['color'].dirty || carForm.controls['color'].touched)"
+                                            class="alert alert-danger">
+                                            {{validation.message}}
+                                          </div>
+                                        </div>
+                              </form>
+
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="updateCar(car.carID)">Save</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal" >Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+<!-- Package NAme -->
+                  <tr>
+                    <th>Package Name</th>
+                    <td>
+                      <a href="" data-toggle="modal"  data-target="#trending3" (click)="onPackageEditButtonPressed(serviceRequest.packageName)">{{serviceRequest.packageName}}</a>
+                      <div class="modal fade" id="trending3" tabindex="-1" role="dialog" aria-labelledby="trending1Label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5  class="modal-title">Edit Service Details</h5>
+                            </div>
+                            <div class="modal-body">
+                              <table class='table'>
+                                <thead>
+                                  <tr>
+                                    <th>Package Name</th>
+                                    <th>Description</th>
+                                    <th>Amount(Rs.)</th>
+                                    <th>Actions</th>
+                                  </tr>
+                                </thead>
+                                    <tbody>
+                                      <tr *ngFor='let service of carServices'>
+                                        <td>{{service.packageName}}</td>
+                                        <td>
+                                          <ul>
+                                            <li>{{service.service1}}</li>
+                                            <li>{{service.service2}}</li>
+                                            <li>{{service.service3}}</li>
+                                            <li>{{service.service4}}</li>
+                                            <li>{{service.service5}}</li>
+                                            <li>{{service.service6}}</li>
+                                          </ul>
+                                        </td>
+                                        <td>{{service.packageAmount}}</td>
+                                        <td><button type="button" class="btn btn-primary" (click)="UpdateServiceForUser(service.packageID, serviceRequest.carID)" >Select</button></td>
+                                      </tr>
+                                    </tbody>
+                              </table>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal" >Cancel</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateServiceRequest(serviceRequest.bookingID)">Save</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" >Cancel</button>
+          </div>
+        </div>
+        </div>
+  </div>
+    </tbody>
+  </table>
 </div>

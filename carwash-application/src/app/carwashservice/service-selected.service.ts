@@ -34,8 +34,13 @@ export class ServiceSelectedService {
       );
   }
 
+  editServiceSelected(serviceSelected: ServiceSelected, carID: number): Observable<ServiceSelected>{
+    console.log('carID : ' + carID);
+    const url = `${this.baseUri}/serviceselected/${carID}`;
+    return this.http.put<ServiceSelected>(url, serviceSelected);
+  }
 
-  // tslint:disable-next-line: typedef
+  // tslint:disable-next-line: typede
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

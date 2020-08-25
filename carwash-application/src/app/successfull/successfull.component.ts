@@ -55,7 +55,7 @@ export class SuccessfullComponent implements OnInit {
 
     this.carService.getCar(username).subscribe({
       next : data => {
-        this.serviceRequest.car = data.carBrand;
+        this.serviceRequest.carBrand = data.carBrand;
         this.serviceRequest.carID = data.carID;
       },
      error : err => this.errorMessage = err
@@ -112,6 +112,7 @@ export class SuccessfullComponent implements OnInit {
         console.log('Service Request Data : ' + data );
     });
     this.router.navigate(['/home']);
+    localStorage.setItem('BookingSuccessfull', 'true');
   }
 
 }
