@@ -1,17 +1,41 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderAcceptedService } from '../service-request/order-accepted.service';
+import { OrderAccepted } from '../service-request/order-accepted';
+import { BookingService } from '../booking/booking.service';
+import { Booking } from '../booking/booking';
+import { Router } from '@angular/Router';
+
 
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
   styleUrls: ['./status.component.css']
 })
+
 export class StatusComponent implements OnInit {
 
-  constructor() { }
+  orderAccepted: OrderAccepted = new OrderAccepted();
+  booking: Booking = new Booking();
+  bookings: Booking[];
+  bookingsForWasher: Booking[];
+
+
+
+  constructor(private orderAcceptedService: OrderAcceptedService,
+              private bookingService: BookingService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.readBookingSuccessful();
+    this.bookingService.getAllScheduleByUsername(localStorage.getItem('username'))
+    .subscribe(data => {
+      this.bookings = data;
+    });
 
+    this.bookingService.getSchedules()
+    .subscribe(data => {
+      this.bookingsForWasher = data;
+    });
   }
 
   // tslint:disable-next-line: typedef
@@ -26,6 +50,7 @@ export class StatusComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   readBookingSuccessful(){
+    console.log(localStorage.getItem('BookingSuccessfull'));
     return localStorage.getItem('BookingSuccessfull');
   }
 
@@ -56,6 +81,7 @@ export class StatusComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   setDropCar(){
+    this.router.navigate(['/invoice']);
     return localStorage.setItem('dropcar', 'true');
   }
 
@@ -69,6 +95,7 @@ export class StatusComponent implements OnInit {
     localStorage.setItem('dropcar', 'false');
     localStorage.setItem('carService', 'false');
     localStorage.setItem('pickCar', 'false');
+    this.router.navigate(['/rating']);
   }
 
 }

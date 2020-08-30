@@ -24,6 +24,7 @@ import { WasherDetailsComponent} from './washer-details/washer-details.component
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { StatusComponent } from './status/status.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 
 const routes: Routes = [
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
   { path: 'success', component: SuccessfullComponent, canActivate: [AuthGuard] },
   { path: 'status', component: StatusComponent, canActivate: [AuthGuard] },
+  { path: 'rating', component: StarRatingComponent, canActivate: [AuthGuard] },
   { path: 'img', component: ImageUploadComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }

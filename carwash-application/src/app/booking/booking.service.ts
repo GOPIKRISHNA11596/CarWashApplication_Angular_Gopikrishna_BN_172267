@@ -31,6 +31,15 @@ export class BookingService {
       );
   }
 
+
+  getAllScheduleByUsername(username: string): Observable<Booking[]> {
+    const url = `${this.baseUri}/booking/username/${username}`;
+    return this.http.get<Booking[]>(url).pipe(
+        tap(data => console.log('All: ' + JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
   addSchedule(booking: Booking[]): Observable<Booking[]> {
     const url = `${this.baseUri}/booking/add`;
     return this.http.post<Booking[]>(url, booking);

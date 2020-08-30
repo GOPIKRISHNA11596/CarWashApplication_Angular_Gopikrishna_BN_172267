@@ -8,7 +8,9 @@ import { PaymentService } from './payment.service';
 import { Car } from '../car/car';
 import { CarService } from '../car/car.service';
 import { ServiceSelected } from '../carwashservice/service-selected';
-import { ServiceSelectedService } from '../carwashservice/service-selected.service'
+import { ServiceSelectedService } from '../carwashservice/service-selected.service';
+
+
 
 
 @Component({
@@ -54,6 +56,10 @@ export class PaymentComponent implements OnInit {
       },
      error : err => this.errorMessage = err
     });
+
+    const id = this.booking.bookingID.toString();
+    localStorage.setItem('bookingID', id);
+
     this.readTotalAmount();
     this.paymentForm = this.formBuilder.group({
       username : [localStorage.getItem('username'), Validators.required],

@@ -24,7 +24,6 @@ import { CarwashserviceComponent } from './carwashservice/carwashservice.compone
 import { PaymentComponent } from './payment/payment.component';
 import { CartComponent } from './cart/cart.component';
 import { SuccessfullComponent } from './successfull/successfull.component';
-import { ServiceRequestAcceptedComponent } from './service-request-accepted/service-request-accepted.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { AdminloginComponent } from './admin/adminlogin.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -32,6 +31,7 @@ import { WasherDetailsComponent } from './washer-details/washer-details.componen
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { ImageUploadComponent } from './image-upload/image-upload.component';
 import { StatusComponent } from './status/status.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 
 
 @NgModule({
@@ -52,14 +52,14 @@ import { StatusComponent } from './status/status.component';
     PaymentComponent,
     CartComponent,
     SuccessfullComponent,
-    ServiceRequestAcceptedComponent,
     InvoiceComponent,
     AdminloginComponent,
     UserDetailsComponent,
     WasherDetailsComponent,
     CarDetailsComponent,
     ImageUploadComponent,
-    StatusComponent
+    StatusComponent,
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,

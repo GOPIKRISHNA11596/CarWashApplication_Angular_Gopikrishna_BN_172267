@@ -1,0 +1,210 @@
+<div *ngIf="rate && readUser()=='true'" class="dis" >
+  <form [formGroup]="regForm" novalidate (ngSubmit)="onSubmit()">
+
+    <h4>Rating:</h4>
+    <div class="stars">
+
+      <input class="star star-5" id="star-5" value="5" type="radio" name="rating" formControlName="rating"
+        [(ngModel)]="rating.rating" />
+
+      <label class="star star-5" for="star-5"></label>
+
+      <input class="star star-4" id="star-4" value="4" type="radio" name="rating" formControlName="rating"
+        [(ngModel)]="rating.rating" />
+
+      <label class="star star-4" for="star-4"></label>
+
+      <input class="star star-3" id="star-3" value="3" type="radio" name="rating" formControlName="rating"
+        [(ngModel)]="rating.rating" />
+
+      <label class="star star-3" for="star-3"></label>
+
+      <input class="star star-2" id="star-2" value="2" type="radio" name="rating" formControlName="rating"
+        [(ngModel)]="rating.rating" />
+
+      <label class="star star-2" for="star-2"></label>
+
+      <input class="star star-1" id="star-1" value="1" type="radio" name="rating" formControlName="rating"
+        [(ngModel)]="rating.rating" />
+
+      <label class="star star-1" for="star-1"></label>
+    </div>
+    <div>
+      <label for="comment"><b>
+          <h4>Comments:</h4>
+        </b></label>
+      <input type="text" placeholder="Enter comments" name="review" id="review" formControlName="review"
+        [(ngModel)]="rating.review" required>
+    </div>
+    <br>
+    <div class="form-group">
+      <button class="btn btn-white" [disabled]="regForm.pristine || regForm.invalid"
+        type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<div *ngIf="!rate && track.rating == 1" class="rating1">
+
+  <h4>Already Rating:</h4>
+  <div class="stars">
+
+    <input class="star star-5" id="star-5" value="5" type="radio" name="rating" disabled />
+
+    <label class="star star-5" for="star-5"></label>
+
+    <input class="star star-4" id="star-4" value="4" type="radio" name="rating" disabled />
+
+    <label class="star star-4" for="star-4"></label>
+
+    <input class="star star-3" id="star-3" value="3" type="radio" name="rating" disabled />
+
+    <label class="star star-3" for="star-3"></label>
+
+    <input class="star star-2" id="star-2" value="2" type="radio" name="rating" disabled />
+
+    <label class="star star-2" for="star-2"></label>
+
+    <input class="star star-1" id="star-1" value="1" type="radio" name="rating" disabled />
+
+    <label class="star star-1" for="star-1"></label>
+  </div>
+  <div>
+    <label for="comment"><b>
+        <h4>Comments:</h4>
+      </b></label>
+    <input type="text" placeholder="Enter comments" name="review" id="review" [(ngModel)]="track.review"
+      disabled>
+  </div>
+</div>
+<div *ngIf="!rate && track.rating == 2" class="rating2">
+
+  <h4>Already Rating:</h4>
+  <div class="stars">
+
+    <input class="star star-5" id="star-5" value="5" type="radio" name="rating" disabled />
+
+    <label class="star star-5" for="star-5"></label>
+
+    <input class="star star-4" id="star-4" value="4" type="radio" name="rating" disabled />
+
+    <label class="star star-4" for="star-4"></label>
+
+    <input class="star star-3" id="star-3" value="3" type="radio" name="rating" disabled />
+
+    <label class="star star-3" for="star-3"></label>
+
+    <input class="star star-2" id="star-2" value="2" type="radio" name="rating" disabled />
+
+    <label class="star star-2" for="star-2"></label>
+
+    <input class="star star-1" id="star-1" value="1" type="radio" name="rating" disabled />
+
+    <label class="star star-1" for="star-1"></label>
+  </div>
+  <div>
+    <label for="comment"><b>
+        <h4>Comments:</h4>
+      </b></label>
+    <input type="text" placeholder="Enter comments" name="review" id="review" [(ngModel)]="track.review"
+      disabled>
+  </div>
+</div>
+<div *ngIf="!rate && track.rating == 3" class="rating3">
+
+  <h4>Already Rating:</h4>
+  <div class="stars">
+
+    <input class="star star-5" id="star-5" value="5" type="radio" name="rating" disabled />
+
+    <label class="star star-5" for="star-5"></label>
+
+    <input class="star star-4" id="star-4" value="4" type="radio" name="rating" disabled />
+
+    <label class="star star-4" for="star-4"></label>
+
+    <input class="star star-3" id="star-3" value="3" type="radio" name="rating" disabled />
+
+    <label class="star star-3" for="star-3"></label>
+
+    <input class="star star-2" id="star-2" value="2" type="radio" name="rating" disabled />
+
+    <label class="star star-2" for="star-2"></label>
+
+    <input class="star star-1" id="star-1" value="1" type="radio" name="rating" disabled />
+
+    <label class="star star-1" for="star-1"></label>
+  </div>
+  <div>
+    <label for="comment"><b>
+        <h4>Comments:</h4>
+      </b></label>
+    <input type="text" placeholder="Enter comments" name="review" id="review" [(ngModel)]="track.review"
+      disabled>
+  </div>
+</div>
+<div *ngIf="!rate && track.rating == 4" class="rating4">
+
+  <h4>Already Rating:</h4>
+  <div class="stars">
+
+    <input class="star star-5" id="star-5" value="5" type="radio" name="rating" disabled />
+
+    <label class="star star-5" for="star-5"></label>
+
+    <input class="star star-4" id="star-4" value="4" type="radio" name="rating" disabled />
+
+    <label class="star star-4" for="star-4"></label>
+
+    <input class="star star-3" id="star-3" value="3" type="radio" name="rating" disabled />
+
+    <label class="star star-3" for="star-3"></label>
+
+    <input class="star star-2" id="star-2" value="2" type="radio" name="rating" disabled />
+
+    <label class="star star-2" for="star-2"></label>
+
+    <input class="star star-1" id="star-1" value="1" type="radio" name="rating" disabled />
+
+    <label class="star star-1" for="star-1"></label>
+  </div>
+  <div>
+    <label for="comment"><b>
+        <h4>Comments:</h4>
+      </b></label>
+    <input type="text" placeholder="Enter comments" name="review" id="review" [(ngModel)]="track.review"
+      disabled>
+  </div>
+</div>
+<div *ngIf="!rate && track.rating == 5" class="rating5">
+
+  <h4>Already Rating:</h4>
+  <div class="stars">
+
+    <input class="star star-5" id="star-5" value="5" type="radio" name="rating" disabled />
+
+    <label class="star star-5" for="star-5"></label>
+
+    <input class="star star-4" id="star-4" value="4" type="radio" name="rating" disabled />
+
+    <label class="star star-4" for="star-4"></label>
+
+    <input class="star star-3" id="star-3" value="3" type="radio" name="rating" disabled />
+
+    <label class="star star-3" for="star-3"></label>
+
+    <input class="star star-2" id="star-2" value="2" type="radio" name="rating" disabled />
+
+    <label class="star star-2" for="star-2"></label>
+
+    <input class="star star-1" id="star-1" value="1" type="radio" name="rating" disabled />
+
+    <label class="star star-1" for="star-1"></label>
+  </div>
+  <div>
+    <label for="comment"><b>
+        <h4>Comments:</h4>
+      </b></label>
+    <input type="text" placeholder="Enter comments" name="review" id="review" [(ngModel)]="track.review"
+      disabled>
+  </div>
+</div>

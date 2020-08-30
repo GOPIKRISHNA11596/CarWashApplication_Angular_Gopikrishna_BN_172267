@@ -1,5 +1,5 @@
 export class Booking {
-  
+
     username: string;
     bookingID: number;
     date: string;

@@ -23,9 +23,17 @@
           <p id="add"><b>Date</b> : {{request.date}}</p>
           <p id="add"><b>Time</b> : {{request.time}}</p>
         </td>
-        <td>
-            <button  class="btn btn-primary" type="submit" [routerLink]="['/invoice', request.carID]" (click)="orderAccepted(request.username)" onclick="style.display = 'none'">Accept</button>
+        <ng-container *ngIf="check; else elseTemplate">
+          <td>
+            <button  class="btn btn-primary" type="submit" (click)="orderAccepted(request.username, request.bookingID)">Accept</button>
         </td>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <td>
+            <button  class="btn btn-primary" type="submit" [routerLink]="['/invoice', request.carID]">Invoice</button>
+        </td>
+        </ng-template>
+
       </tr>
     </tbody>
   </table>

@@ -5,8 +5,8 @@ import { ActivatedRoute, Router} from '@angular/Router';
 // import * as jsPDF from 'jspdf';
 // import { jsPDF } from 'jspdf';
 // import html2canvas from 'html2canvas';
-import { PdfMakeWrapper } from 'pdfmake-wrapper';
-import pdfFonts from "pdfmake/build/vfs_fonts"; // fonts provided for pdfmake
+// import { PdfMakeWrapper } from 'pdfmake-wrapper';
+// import pdfFonts from "pdfmake/build/vfs_fonts"; // fonts provided for pdfmake
 
 
 @Component({
@@ -35,8 +35,7 @@ export class InvoiceComponent implements OnInit {
      error : err => this.errorMessage = err
     });
   }
-
-  downloadAsPDF(){
+  // downloadAsPDF(){
     // const data = document.getElementById('pdfTable');
     // html2canvas(data).then((canvas) => {
     //   // <canvas width="540" height="729" style="width: 360px; height: 486px;"></canvas>
@@ -49,7 +48,7 @@ export class InvoiceComponent implements OnInit {
     //   doc.addImage(imgData, 0, 0, 208, 150);
     //   doc.save('image.pdf');
     // });
-  }
+  // }
 
   // downloadAsPDF(){
   //   const data = document.getElementById('pdfTable');

@@ -2,32 +2,40 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { ServiceRequestAccepted } from './service-request-accepted';
+import { StarRating } from './star-rating';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceRequestAcceptedService {
+export class StarRatingService {
 
   baseUri: string = 'http://localhost:3000';
-  serviceRequestAccepted: ServiceRequestAccepted[];
+  starRating: StarRating[];
 
   constructor(private http: HttpClient) { }
 
-  addServiceRequestAccepted(serviceRequestAccepted: ServiceRequestAccepted): Observable<ServiceRequestAccepted[]> {
-    const url = `${this.baseUri}/servicerequestacc/add`;
-    return this.http.post<ServiceRequestAccepted[]>(url, serviceRequestAccepted);
-  }
-
-  getServiceRequestAccepted(): Observable<ServiceRequestAccepted[]> {
-    const url = `${this.baseUri}/servicerequestacc`;
-    return this.http.get<ServiceRequestAccepted[]>(url).pipe(
+  getRatings(): Observable<StarRating[]> {
+    const url = `${this.baseUri}/ratings`;
+    return this.http.get<StarRating[]>(url).pipe(
         tap(data => console.log('All: ' + JSON.stringify(data))),
+        // tap(),
         catchError(this.handleError)
       );
   }
 
-  // tslint:disable-next-line: typedef
+  getRating(BookingID: number): Observable<StarRating | undefined> {
+    return this.getRatings()
+      .pipe(
+        map((ratings: StarRating[]) => ratings.find(p => p.bookingID === BookingID))
+      );
+  }
+
+  addRating(starRating: StarRating[]): Observable<StarRating[]> {
+    const url = `${this.baseUri}/ratings/add`;
+    return this.http.post<StarRating[]>(url, starRating);
+ }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
@@ -38,5 +46,5 @@ export class ServiceRequestAcceptedService {
     console.error(errorMessage);
     return throwError(errorMessage);
   }
-}
 
+}

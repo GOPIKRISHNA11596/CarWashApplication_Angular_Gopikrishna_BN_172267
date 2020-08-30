@@ -41,8 +41,9 @@
           </tr>
         </tbody>
       </table>
-      <div class="wrapper">
-        <button class="btn btn-primary" type="submit" (click)="downloadAsPDF()">Export To PDF</button>
+      <div >
+        <button id="back" class="btn btn-primary" type="submit" onclick="history.back()">Back</button>
+        <button id="ok" class="btn btn-primary" type="submit" [routerLink]="['/home']">ok</button>
       </div>
     </div>
 

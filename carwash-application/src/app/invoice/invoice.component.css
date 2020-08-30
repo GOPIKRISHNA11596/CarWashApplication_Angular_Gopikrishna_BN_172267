@@ -17,3 +17,10 @@ p{
   text-align: center;
 }
 
+#back{
+  float: right;
+}
+
+#ok{
+  float: left;
+}

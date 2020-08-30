@@ -9,6 +9,9 @@ import { CarServiceModel } from '../car-service/car-service';
 import { CarServiceService } from '../car-service/car-service.service';
 import { ServiceSelectedService } from '../carwashservice/service-selected.service';
 import { ServiceSelected } from '../carwashservice/service-selected';
+import { OrderAcceptedService } from './order-accepted.service';
+import { OrderAccepted } from './order-accepted';
+
 
 
 
@@ -28,13 +31,17 @@ export class ServiceRequestComponent implements OnInit {
   errorMessage = '';
   car: Car = new Car();
   cars: Car;
+  orderAccept: OrderAccepted = new OrderAccepted();
   serviceSelecteds: ServiceSelected;
   serviceSelected: ServiceSelected = new ServiceSelected();
   carForm: FormGroup;
   submitted = false;
+  check: boolean = true;
 
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   @Output() afterDelete: EventEmitter<any> = new EventEmitter();
+  @Output() accept: EventEmitter<any> = new EventEmitter();
+
 
   car_validation_messages = {
     carBrand : [{ type: 'required', message: 'Car Brand is required' }],
@@ -49,6 +56,7 @@ export class ServiceRequestComponent implements OnInit {
               private carService: CarService,
               private carServiceService: CarServiceService,
               private serviceSelectedService: ServiceSelectedService,
+              private orderAcceptedService: OrderAcceptedService,
               private router: Router,
               private route: ActivatedRoute,
               private formBuilder: FormBuilder) { }
@@ -214,9 +222,23 @@ export class ServiceRequestComponent implements OnInit {
   }
 
   // tslint:disable-next-line: typedef
-  orderAccepted(username: string){
-    localStorage.setItem('orderAccepted', 'true');
-    localStorage.setItem('orderAcceptedForUsername', username);
+  orderAccepted(username: string, bookingID: number){
+
+    this.orderAccept.bookingID = bookingID;
+    this.orderAccept.username = username;
+    this.orderAccept.isAccepted = true;
+
+    this.orderAcceptedService.addOrderAccepted(this.orderAccept)
+    .subscribe( data => {
+      console.log(data);
+      });
+      
+    // localStorage.setItem('orderAccepted', 'true');
+    // localStorage.setItem('orderAcceptedForUsername', username);
+    // localStorage.setItem('orderAcceptedForBookingID', bookingID.toString());
+    // this.check = false;
+    // this.accept.emit();
   }
 
 }
+
