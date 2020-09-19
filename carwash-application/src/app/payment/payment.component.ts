@@ -57,8 +57,9 @@ export class PaymentComponent implements OnInit {
      error : err => this.errorMessage = err
     });
 
-    const id = this.booking.bookingID.toString();
-    localStorage.setItem('bookingID', id);
+    const id = this.booking.bookingID;
+    console.log('Booking ID ' + id);
+    // localStorage.setItem('bookingID', id);
 
     this.readTotalAmount();
     this.paymentForm = this.formBuilder.group({

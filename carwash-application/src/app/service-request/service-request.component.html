@@ -39,6 +39,36 @@
   </table>
 </div>
 
+<div class="container-fluid" *ngIf="readAdmin()=='true'">
+  <h3 style="text-align: center;">{{pageTitle}}</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Username</th>
+        <th>Car</th>
+        <th>Package Name</th>
+        <th>Location, Date & Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let request of serviceRequests'>
+        <td>{{request.bookingID}}</td>
+        <td><a [routerLink]="['/servicerequestdesc', request.username]">{{request.username}}</a></td>
+        <td> <a [routerLink]="['/servicerequestdesc', request.carID]">{{request.carBrand}}</a> </td>
+        <td>{{request.packageName}}</td>
+        <td>
+          <p id="add"><i class="fa fa-map-marker" aria-hidden="true"></i>#{{request.doorNumber}}, {{request.street}},</p>
+          <p id="add">{{request.city}}, {{request.district}},</p>
+          <p id="add">{{request.state}} - {{request.pincode}}</p>
+          <p id="add"><b>Date</b> : {{request.date}}</p>
+          <p id="add"><b>Time</b> : {{request.time}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="container-fluid" *ngIf="readUser()=='true'">
   <h3 style="text-align: center;">Your Orders</h3>
   <table class='table'>

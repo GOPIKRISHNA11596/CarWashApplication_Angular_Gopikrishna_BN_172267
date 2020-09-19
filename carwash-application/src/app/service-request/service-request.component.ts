@@ -64,7 +64,9 @@ export class ServiceRequestComponent implements OnInit {
   ngOnInit(): void {
     console.log('readWasher() :' + this.readWasher());
     console.log('readUser() :' + this.readUser());
+    console.log('readAdmin() :' + this.readAdmin());
     console.log('readUsername() :' + this.readUserName());
+
 
     if (this.readWasher() === 'true'){
       console.log('getServiceRequest()');
@@ -74,11 +76,21 @@ export class ServiceRequestComponent implements OnInit {
         }
       });
     }
+
+    if (this.readAdmin() === 'true'){
+      console.log('getServiceRequest()');
+      this.serviceRequestService.getServiceRequest().subscribe({
+        next : data => {
+          this.serviceRequests = data;
+        }
+      });
+    }
+
     if (this.readUser() === 'true'){
       this.getAllServiceDataForUser();
     }
-    const carID  = this.route.snapshot.paramMap.get('id');
 
+    const carID  = this.route.snapshot.paramMap.get('id');
     this.carFormValidating();
   }
 
@@ -110,11 +122,11 @@ export class ServiceRequestComponent implements OnInit {
     this.afterAccept();
   }
 
-
   // tslint:disable-next-line: typedef
   afterAccept(){
     this.getLoggedInName.emit();
   }
+
   // tslint:disable-next-line: typedef
   readWasher(){
     return localStorage.getItem('iswasherlogin');
@@ -123,6 +135,11 @@ export class ServiceRequestComponent implements OnInit {
   // tslint:disable-next-line: typedef
   readUser(){
     return localStorage.getItem('isuserlogin');
+  }
+
+  // tslint:disable-next-line: typedef
+  readAdmin(){
+    return localStorage.getItem('isadminlogin');
   }
 
   // tslint:disable-next-line: typedef
@@ -232,11 +249,11 @@ export class ServiceRequestComponent implements OnInit {
     .subscribe( data => {
       console.log(data);
       });
-      
+
     // localStorage.setItem('orderAccepted', 'true');
     // localStorage.setItem('orderAcceptedForUsername', username);
     // localStorage.setItem('orderAcceptedForBookingID', bookingID.toString());
-    // this.check = false;
+    this.check = false;
     // this.accept.emit();
   }
 
